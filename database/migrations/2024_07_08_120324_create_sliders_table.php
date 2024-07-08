@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('image');
             $table->string('btn_text')->nullable();
             $table->string('btn_link')->nullable();
+            $table->enum('status', ['active', 'inactive'])->default('active');
             $table->timestamps();
         });
     }

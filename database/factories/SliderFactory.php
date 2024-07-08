@@ -17,9 +17,9 @@ class SliderFactory extends Factory
     public function definition(): array
     {
         return [
-            'title'  => fake()->title(),
-            'subtitle'  => fake()->title(),
-            'image'  => 'https://picsum.photos/900/900?grayscale'.rand(1,1122),
+            'title'  => fake()->sentence(rand(4, 6)),
+            'subtitle'  => fake()->sentence(rand(3,5)),
+            'image'  => 'https://picsum.photos/900/700?grayscale'.rand(1,1122),
             'btn_text'  => 'Admission open',
         ];
     }
