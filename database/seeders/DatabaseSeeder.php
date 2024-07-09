@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Promo;
 use App\Models\Slider;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -23,5 +24,6 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Slider::factory(10)->create();
+        Promo::factory(5)->create();
     }
 }

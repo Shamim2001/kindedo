@@ -5,7 +5,7 @@
     @livewire('section.hero-area')
 
 
-    @livewire('section.class-area')
+    {{-- @livewire('section.class-area') --}}
 
     @livewire('section.promo-area')
 

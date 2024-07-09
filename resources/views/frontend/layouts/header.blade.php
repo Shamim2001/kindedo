@@ -65,7 +65,7 @@
                 <div class="d-flex align-items-center justify-content-between">
                    <div class="bd-header-logo">
                       <a href="index.html">
-                         <img src="assets/img/logo/logo.svg" alt="logo">
+                         <img src="{{ asset('frontend') }}/assets/img/logo/logo.svg" alt="logo">
                       </a>
                    </div>
                    <div class="bd-main-menu d-none d-lg-flex align-items-center">
@@ -143,7 +143,7 @@
                                      <ul>
                                         <li>
                                            <div class="mega-menu-2-inner-thumb p-relative">
-                                              <img src="assets/img/logo/mega-menu-1.png" alt="img not found!">
+                                              <img src="{{ asset('frontend') }}/assets/img/logo/mega-menu-1.png" alt="img not found!">
                                               <div class="mega-menu-2-inner-thumb-content">
                                                  <h4>Join New Program</h4>
                                                  <div class="mega-menu-2-inner-thumb-btn mb-25">

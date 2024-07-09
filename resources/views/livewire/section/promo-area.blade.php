@@ -1,5 +1,5 @@
 <!-- promotion area start here  -->
-<section class="bd-promotion-area pb-60">
+<section class="bd-promotion-area pb-60  pt-120">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-xl-6 col-lg-6">
@@ -7,7 +7,7 @@
                     <div class="bd-promotion-thumb">
                         <div class="bd-promotion-thumb-mask p-relative wow fadeInLeft" data-wow-delay=".3s"
                             data-wow-duration="1">
-                            <img src="{{ asset('frontend') }}/assets/img/promotion/2.png" alt="Image not found">
+                            <img src="{{ getAssetUrl($promo->image, 'promos') }}" alt="Image not found">
                             <div class="panel wow"></div>
                         </div>
                     </div>
@@ -19,13 +19,10 @@
             <div class="col-xl-6 col-lg-6">
                 <div class="bd-promotion mb-60 wow fadeInRight" data-wow-duration="1s" data-wow-delay=".3s">
                     <div class="bd-section-title-wrapper mb-35">
-                        <h2 class="bd-section-title mb-10">Best for Your Kids</h2>
-                        <p> Being brave isn’t always a grand gesture sometimes it just means having a go attempting
-                            that difficult question, offering an answer in a lesson when you’re
-                            simply really trying new.
-                        </p>
+                        <h2 class="bd-section-title mb-10">{{ $promo->title }}</h2>
+                        <p>{{ $promo->description }}</p>
                     </div>
-                    <div class="bd-promotion-counter-wrapper mb-40">
+                    {{-- <div class="bd-promotion-counter-wrapper mb-40">
                         <div class="bd-promotion-counter">
                             <div class="bd-promotion-counter-number">
                                 <p><span class="counter">14</span>+</p>
@@ -59,7 +56,7 @@
                             <li>We believe every child is intelligent so we care.</li>
                             <li>Teachers make a difference of your child.</li>
                         </ul>
-                    </div>
+                    </div> --}}
                     <div class="bd-promotion-btn-wrapper flex-wrap">
                         <div class="bd-promotion-btn">
                             <a href="#" class="bd-btn">
@@ -70,7 +67,7 @@
                             </a>
                         </div>
                         <div class="bd-promotion-btn-2 bd-pulse-btn btn-2">
-                            <a href="https://www.youtube.com/watch?v=l62SIcbCPwo" class="popup-video"><i
+                            <a href="{{ $promo->video_url }}" class="popup-video"><i
                                     class="flaticon-play-button"></i> Promotional Video</a>
                         </div>
                     </div>
