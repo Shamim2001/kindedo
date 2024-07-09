@@ -10,7 +10,7 @@ class PromoArea extends Component
     public function render()
     {
         return view('livewire.section.promo-area', [
-            'promo' => Promo::latest()->first(),
+            'promo' => Promo::whereStatus('active')->latest()->first(),
         ]);
     }
 }

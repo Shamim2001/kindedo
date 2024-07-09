@@ -16,7 +16,28 @@
                 <div class="bd-program-active swiper-container wow fadeInUp" data-wow-duration="1s"
                     data-wow-delay=".4s">
                     <div class="swiper-wrapper pt-20">
-                        <div class="swiper-slide">
+                        @foreach ($programs as $program)
+                            <div class="swiper-slide">
+                                <div class="bd-program-2 clr-1">
+                                    <div class="bd-program-thumb-wrapper">
+                                        <a href="program-details.html">
+                                            <div class="bd-program-thumb-2">
+                                                <img src="{{ getAssetUrl($program->image, 'programs') }}" alt="{{ $program->name }}">
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="bd-program-content mb-10">
+                                        <h3 class="bd-program-title"><a class="hover-clr-1"
+                                                href="{{ route('front.program.details', $program->slug) }}">{{ $program->name }}</a>
+                                        </h3>
+                                    </div>
+                                    <div class="bd-program-info-wrapper-2">
+                                        <p>{{ Str::limit($program->excerpt, 120)  }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                        {{-- <div class="swiper-slide">
                             <div class="bd-program-2 clr-1">
                                 <div class="bd-program-thumb-wrapper">
                                     <a href="program-details.html">
@@ -97,7 +118,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>

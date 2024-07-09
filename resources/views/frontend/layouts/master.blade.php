@@ -30,7 +30,7 @@
 
 <body>
    <!-- pre loader area start -->
-   <div id="loading">
+   {{-- <div id="loading">
       <div id="preloader">
          <div class="preloader-thumb-wrap">
             <div class="preloader-thumb">
@@ -39,7 +39,7 @@
             </div>
          </div>
       </div>
-   </div>
+   </div> --}}
    <!-- pre loader area end -->
 
    <!-- back to top start -->
@@ -185,8 +185,8 @@
                <div class="bd-footer-copyright pb-5 pt-25">
                   <div class="bd-footer-copyright-wrap d-flex justify-content-center">
                      <div class="bd-footer-copyright-text is-white pb-20">
-                        <p>Copyrighted by &copy;2023 <a href="https://themeforest.net/user/bdevs/portfolio"
-                              rel="nofollow">BDevs</a>
+                        <p>Copyrighted by &copy;2023 <a href=""
+                              ></a>
                         </p>
                      </div>
                   </div>

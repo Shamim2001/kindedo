@@ -11,15 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('promos', function (Blueprint $table) {
+        Schema::create('programs', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
+            $table->string('name');
             $table->string('slug');
-            $table->string('image');
+            $table->string('title');
             $table->text('subtitle')->nullable();
+            $table->text('excerpt')->nullable();
             $table->longText('description')->nullable();
-            $table->text('video_url')->nullable();
-            $table->enum('status', ['active', 'inactive'])->default('active');
+            $table->string('image');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('promos');
+        Schema::dropIfExists('programs');
     }
 };
