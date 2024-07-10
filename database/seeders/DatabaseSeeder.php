@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\About;
+use App\Models\Faq;
 use App\Models\Program;
 use App\Models\Promo;
 use App\Models\Slider;
@@ -17,17 +18,20 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+
 
         User::factory()->create([
-            'name' => 'Admin',
+            'first_name' => 'Admin',
+            'last_name' => 'test',
             'email' => 'admin@kindedo.test',
             'password' => bcrypt('123'),
+            'role' => 'admin'
         ]);
 
+        User::factory(20)->create();
         Slider::factory(10)->create();
         Promo::factory(5)->create();
         Program::factory(20)->create();
-        About::factory(10)->create();
+        Faq::factory(10)->create();
     }
 }

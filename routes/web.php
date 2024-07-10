@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Route;
 Route::as('front.')->group(function () {
     Route::get('/', [FrontendController::class, 'home'])->name('index');
     Route::get('program/{slug}', [FrontendController::class, 'programDetails'])->name('program.details');
+    Route::get('teachers', [FrontendController::class, 'teachers'])->name('teacher.index');
 });
 
 Route::get('/dashboard', function () {

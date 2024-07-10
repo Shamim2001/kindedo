@@ -11,12 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('abouts', function (Blueprint $table) {
+        Schema::create('faqs', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->longText('about')->nullable();
-            $table->longText('child_desc')->nullable();
-            $table->longText('year_desc')->nullable();
+            $table->string('name')->nullable();
+            $table->longText('content')->nullable();
             $table->string('image')->nullable();
             $table->enum('status', ['active', 'inactive'])->default('active');
             $table->timestamps();
@@ -28,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('abouts');
+        Schema::dropIfExists('faqs');
     }
 };

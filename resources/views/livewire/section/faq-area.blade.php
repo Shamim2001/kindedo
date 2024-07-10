@@ -5,26 +5,29 @@
             <div class="col-xl-6 col-lg-6">
                 <div class="bd-faq-content-2 mb-60 wow fadeInLeft" data-wow-duration="1s" data-wow-delay=".3s">
                     <div class="bd-section-title-wrapper mb-25">
-                        <h2 class="bd-section-title mb-0">{{ $faq->title }}</h2>
+                        <h2 class="bd-section-title mb-0">{{ $faqs[0]->title }}</h2>
                     </div>
                     <div class="bd-faq">
                         <div class="accordion" id="accordionExample">
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="headingOne">
-                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapseOne" aria-expanded="true"
-                                        aria-controls="collapseOne">
-                                        What is the best age to start Kindergarten?
-                                    </button>
-                                </h2>
-                                <div id="collapseOne" class="accordion-collapse collapse show"
-                                    aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                    <div class="accordion-body">
-                                        <p>{{ $faq->about }}</p>
+
+                            @foreach ($faqs->take(4) as $key => $faq)
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingTwo-{{ $key }}">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseTwo-{{$key}}" aria-expanded="{{ $key == 0 ? 'true' : 'false'}}"
+                                            aria-controls="collapseTwo-{{$key}}">
+                                            {{ $faq->name }}
+                                        </button>
+                                    </h2>
+                                    <div id="collapseTwo-{{$key}}" class="accordion-collapse collapse {{ $key == 0 ? 'show' : ''}}"
+                                        aria-labelledby="headingTwo-{{ $key }}" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            <p>{{ $faq->content }}</p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="accordion-item">
+                            @endforeach
+                            {{-- <div class="accordion-item">
                                 <h2 class="accordion-header" id="headingTwo">
                                     <button class="accordion-button collapsed" type="button"
                                         data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false"
@@ -53,7 +56,7 @@
                                         <p>{{ $faq->year_desc }}</p>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>
@@ -63,7 +66,8 @@
                     <div class="bd-faq-thumb">
                         <div class="bd-faq-thumb-mask p-relative wow fadeInRight" data-wow-duration="1s"
                             data-wow-delay=".3s">
-                            <img src="{{ getAssetUrl($faq->image, 'faqs') }}" alt="Image not found">
+                            <img src="{{ getAssetUrl($faqs[0]->image, 'faqs') }}" alt="Image not found">
+
                             <div class="panel-2 wow"></div>
                         </div>
                     </div>

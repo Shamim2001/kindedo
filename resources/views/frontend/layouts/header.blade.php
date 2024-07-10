@@ -64,7 +64,7 @@
              <div class="mega-menu-wrapper p-relative">
                 <div class="d-flex align-items-center justify-content-between">
                    <div class="bd-header-logo">
-                      <a href="index.html">
+                      <a href="{{ route('front.index') }}">
                          <img src="{{ asset('frontend') }}/assets/img/logo/logo.svg" alt="logo">
                       </a>
                    </div>
@@ -72,9 +72,9 @@
                       <nav id="mobile-menu">
                          <ul>
                             <li class="has-dropdown">
-                               <a href="index.html">Home</a>
+                               <a href="{{ route('front.index') }}">Home</a>
                                <ul class="submenu">
-                                  <li><a href="index.html">Home Style 1</a></li>
+                                  <li><a href="{{ route('front.index') }}">Home Style 1</a></li>
                                   <li><a href="index-2.html">Home Style 2</a>
                                   </li>
                                   <li><a href="index-3.html">Home Style 3</a></li>
