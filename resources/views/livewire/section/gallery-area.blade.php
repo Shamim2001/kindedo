@@ -16,75 +16,27 @@
             <div class="col-12">
                 <div class="bd-gallery-active swiper-container wow fadeInUp" data-wow-duration="1s"
                     data-wow-delay=".5s">
-                    <div class="swiper-wrapper">
-                        @foreach ($galleries as $gallery)
-                            <div class="swiper-slide">
-                                <div class="bd-gallery">
-                                    <div class="bd-gallery-thumb-wrapper">
-                                        <div class="bd-gallery-thumb">
-                                            <img src="{{ getAssetUrl($gallery->name, 'programs') }}" alt="img not found!">
+                    @if (count($galleries) > 0)
+
+                        <div class="swiper-wrapper">
+                            @foreach ($galleries as $gallery)
+                                <div class="swiper-slide">
+                                    <div class="bd-gallery">
+                                        <div class="bd-gallery-thumb-wrapper">
+                                            <div class="bd-gallery-thumb">
+                                                <img src="{{ getAssetUrl($gallery->name, 'programs') }}"
+                                                    alt="img not found!">
+                                            </div>
+                                            <div class="bd-gallery-icon">
+                                                <a href="{{ getAssetUrl($gallery->name, 'programs') }}"
+                                                    class="popup-image"><i class="flaticon-eye"></i></a>
+                                            </div>
                                         </div>
-                                        <div class="bd-gallery-icon">
-                                            <a href="{{ getAssetUrl($gallery->name, 'programs') }}" class="popup-image"><i
-                                                    class="flaticon-eye"></i></a>
-                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        @endforeach
-                        {{-- <div class="swiper-slide">
-                            <div class="bd-gallery">
-                                <div class="bd-gallery-thumb-wrapper">
-                                    <div class="bd-gallery-thumb">
-                                        <img src="{{ asset('frontend') }}/assets/img/gallery/1.png" alt="img not found!">
-                                    </div>
-                                    <div class="bd-gallery-icon">
-                                        <a href="{{ asset('frontend') }}/assets/img/gallery/1.png" class="popup-image"><i
-                                                class="flaticon-eye"></i></a>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
-                        <div class="swiper-slide">
-                            <div class="bd-gallery">
-                                <div class="bd-gallery-thumb-wrapper">
-                                    <div class="bd-gallery-thumb">
-                                        <img src="{{ asset('frontend') }}/assets/img/gallery/2.png" alt="img not found!">
-                                    </div>
-                                    <div class="bd-gallery-icon">
-                                        <a href="{{ asset('frontend') }}/assets/img/gallery/2.png" class="popup-image"><i
-                                                class="flaticon-eye"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="bd-gallery">
-                                <div class="bd-gallery-thumb-wrapper">
-                                    <div class="bd-gallery-thumb">
-                                        <img src="{{ asset('frontend') }}/assets/img/gallery/3.png" alt="img not found!">
-                                    </div>
-                                    <div class="bd-gallery-icon">
-                                        <a href="{{ asset('frontend') }}/assets/img/gallery/3.png" class="popup-image"><i
-                                                class="flaticon-eye"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="bd-gallery">
-                                <div class="bd-gallery-thumb-wrapper">
-                                    <div class="bd-gallery-thumb">
-                                        <img src="{{ asset('frontend') }}/assets/img/gallery/4.png" alt="img not found!">
-                                    </div>
-                                    <div class="bd-gallery-icon">
-                                        <a href="{{ asset('frontend') }}/assets/img/gallery/4.png" class="popup-image"><i
-                                                class="flaticon-eye"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> --}}
-                    </div>
+                    @endif
                 </div>
                 <!-- program slider dots pagination  -->
                 <div class="bd-gallery-pagination bd-dots-pagination fill-pagination wow fadeInUp"

@@ -11,52 +11,21 @@
                         <div class="accordion" id="accordionExample">
 
                             @foreach ($faqs->take(4) as $key => $faq)
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="headingTwo-{{ $key }}">
-                                        <button class="accordion-button collapsed" type="button"
-                                            data-bs-toggle="collapse" data-bs-target="#collapseTwo-{{$key}}" aria-expanded="{{ $key == 0 ? 'true' : 'false'}}"
-                                            aria-controls="collapseTwo-{{$key}}">
-                                            {{ $faq->name }}
-                                        </button>
-                                    </h2>
-                                    <div id="collapseTwo-{{$key}}" class="accordion-collapse collapse {{ $key == 0 ? 'show' : ''}}"
-                                        aria-labelledby="headingTwo-{{ $key }}" data-bs-parent="#accordionExample">
-                                        <div class="accordion-body">
-                                            <p>{{ $faq->content }}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            @endforeach
-                            {{-- <div class="accordion-item">
-                                <h2 class="accordion-header" id="headingTwo">
-                                    <button class="accordion-button collapsed" type="button"
-                                        data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false"
-                                        aria-controls="collapseTwo">
-                                        Which is the best preschool for your child ?
-                                    </button>
-                                </h2>
-                                <div id="collapseTwo" class="accordion-collapse collapse"
-                                    aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                                    <div class="accordion-body">
-                                        <p>{{ $faq->child_desc }}</p>
-                                    </div>
-                                </div>
-                            </div>
                             <div class="accordion-item">
-                                <h2 class="accordion-header" id="headingThree">
-                                    <button class="accordion-button collapsed" type="button"
-                                        data-bs-toggle="collapse" data-bs-target="#collapseThree"
-                                        aria-expanded="false" aria-controls="collapseThree">
-                                        What is the toution fee on first year?
-                                    </button>
+                                <h2 class="accordion-header" id="headingOne_{{$key}}">
+                                   <button class="accordion-button {{ $key == 0 ? '' : 'collapsed' }}" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne_{{$key}}" aria-expanded="{{$key == 0 ? 'true': 'false'}}" aria-controls="collapseOne_{{$key}}">
+                                      {{ $faq->title }}
+                                   </button>
                                 </h2>
-                                <div id="collapseThree" class="accordion-collapse collapse"
-                                    aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                                    <div class="accordion-body">
-                                        <p>{{ $faq->year_desc }}</p>
-                                    </div>
+                                <div id="collapseOne_{{$key}}" class="accordion-collapse collapse {{$key == 0 ? 'show': ''}}" aria-labelledby="headingOne_{{$key}}" data-bs-parent="#accordionExample">
+                                   <div class="accordion-body">
+                                      <p>{{ $faq->content }}</p>
+                                   </div>
                                 </div>
-                            </div> --}}
+                             </div>
+
+
+                            @endforeach
                         </div>
                     </div>
                 </div>

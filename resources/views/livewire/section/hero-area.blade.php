@@ -15,52 +15,56 @@
         </div>
     </div>
 
-    <!-- banner slider navigation  -->
-    <div class="bd-hero-navigation mb-15 d-none d-md-flex">
-        <button class="bd-hero-prev">
-            <i class="fa-regular fa-angle-left"></i>
-        </button>
-        <button class="bd-hero-next">
-            <i class="fa-regular fa-angle-right"></i>
-        </button>
-    </div>
-    <div class="swiper-container bd-hero-slider bd-hero-active">
-        <div class="swiper-wrapper">
-            @foreach ($sliders as $slider)
-                <div class="swiper-slide">
-                    <div class="bd-hero-inner-2">
-                        <div class="container">
-                            <div class="bd-hero-shape-wrapper d-none d-lg-block">
-                                <div class="bd-hero-shape bd-hero-shape-2">
-                                    <img src="{{ asset('frontend') }}/assets/img/shape/curved-line-2.png"
-                                        alt="Shape not found">
+    @if (count($sliders) > 0)
+        <!-- banner slider navigation  -->
+        <div class="bd-hero-navigation mb-15 d-none d-md-flex">
+            <button class="bd-hero-prev">
+                <i class="fa-regular fa-angle-left"></i>
+            </button>
+            <button class="bd-hero-next">
+                <i class="fa-regular fa-angle-right"></i>
+            </button>
+        </div>
+        <div class="swiper-container bd-hero-slider bd-hero-active">
+            <div class="swiper-wrapper">
+                @foreach ($sliders as $slider)
+                    <div class="swiper-slide">
+                        <div class="bd-hero-inner-2">
+                            <div class="container">
+                                <div class="bd-hero-shape-wrapper d-none d-lg-block">
+                                    <div class="bd-hero-shape bd-hero-shape-2">
+                                        <img src="{{ asset('frontend') }}/assets/img/shape/curved-line-2.png"
+                                            alt="Shape not found">
+                                    </div>
+                                    <div class="bd-hero-shape bd-hero-shape-1">
+                                        <img src="{{ asset('frontend') }}/assets/img/shape/curved-line-2.png"
+                                            alt="Shape not found">
+                                    </div>
                                 </div>
-                                <div class="bd-hero-shape bd-hero-shape-1">
-                                    <img src="{{ asset('frontend') }}/assets/img/shape/curved-line-2.png"
-                                        alt="Shape not found">
-                                </div>
-                            </div>
-                            <div class="bd-hero-2">
-                                <div class="bd-hero-bg"
-                                    data-background="{{ getAssetUrl($slider->image, 'sliders') }}"></div>
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="bd-hero-content-wrapper-2 d-flex align-items-center">
-                                            <div class="bd-hero-content bd-hero-content-2 is-white">
-                                                <span class="animate__animated" data-animation="fadeInUp"
-                                                    data-delay=".3s">{{ $slider->subtitle }}</span>
-                                                <h1 class="bd-hero-title animate__animated" data-animation="fadeInUp"
-                                                    data-delay=".5s">
-                                                    {{ $slider->title }}
-                                                </h1>
-                                                <div class="bd-hero-btn animate__animated" data-animation="fadeInUp"
-                                                    data-delay=".7s">
-                                                    <a href="programs.html" class="bd-btn">
-                                                        <span class="bd-btn-inner">
-                                                            <span class="bd-btn-normal">{{ $slider->btn_text }}</span>
-                                                            <span class="bd-btn-hover">{{ $slider->btn_text }}</span>
-                                                        </span>
-                                                    </a>
+                                <div class="bd-hero-2">
+                                    <div class="bd-hero-bg"
+                                        data-background="{{ getAssetUrl($slider->image, 'sliders') }}"></div>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="bd-hero-content-wrapper-2 d-flex align-items-center">
+                                                <div class="bd-hero-content bd-hero-content-2 is-white">
+                                                    <span class="animate__animated" data-animation="fadeInUp"
+                                                        data-delay=".3s">{{ $slider->subtitle }}</span>
+                                                    <h1 class="bd-hero-title animate__animated"
+                                                        data-animation="fadeInUp" data-delay=".5s">
+                                                        {{ $slider->title }}
+                                                    </h1>
+                                                    <div class="bd-hero-btn animate__animated" data-animation="fadeInUp"
+                                                        data-delay=".7s">
+                                                        <a href="{{ route('front.programs') }}" class="bd-btn">
+                                                            <span class="bd-btn-inner">
+                                                                <span
+                                                                    class="bd-btn-normal">{{ $slider->btn_text }}</span>
+                                                                <span
+                                                                    class="bd-btn-hover">{{ $slider->btn_text }}</span>
+                                                            </span>
+                                                        </a>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -69,138 +73,9 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            @endforeach
-            <div class="swiper-slide">
-                <div class="bd-hero-inner-2">
-                    <div class="container">
-                        <div class="bd-hero-shape-wrapper d-none d-lg-block">
-                            <div class="bd-hero-shape bd-hero-shape-2">
-                                <img src="{{ asset('frontend') }}/assets/img/shape/curved-line-2.png"
-                                    alt="Shape not found">
-                            </div>
-                            <div class="bd-hero-shape bd-hero-shape-1">
-                                <img src="{{ asset('frontend') }}/assets/img/shape/curved-line-2.png"
-                                    alt="Shape not found">
-                            </div>
-                        </div>
-                        <div class="bd-hero-2">
-                            <div class="bd-hero-bg"
-                                data-background="{{ asset('frontend') }}/assets/img/hero/slider-3.jpg"></div>
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="bd-hero-content-wrapper-2 d-flex align-items-center">
-                                        <div class="bd-hero-content bd-hero-content-2 is-white">
-                                            <span class="animate__animated" data-animation="fadeInUp"
-                                                data-delay=".3s">Kindergarten Program</span>
-                                            <h1 class="bd-hero-title animate__animated" data-animation="fadeInUp"
-                                                data-delay=".5s">
-                                                Best Children’s Education
-                                            </h1>
-                                            <div class="bd-hero-btn animate__animated" data-animation="fadeInUp"
-                                                data-delay=".7s">
-                                                <a href="programs.html" class="bd-btn">
-                                                    <span class="bd-btn-inner">
-                                                        <span class="bd-btn-normal">Admission open 22-23</span>
-                                                        <span class="bd-btn-hover">Admission open 22-23</span>
-                                                    </span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="swiper-slide">
-                <div class="bd-hero-inner-2">
-                    <div class="container">
-                        <div class="bd-hero-shape-wrapper d-none d-lg-block">
-                            <div class="bd-hero-shape bd-hero-shape-2">
-                                <img src="{{ asset('frontend') }}/assets/img/shape/curved-line-2.png"
-                                    alt="Shape not found">
-                            </div>
-                            <div class="bd-hero-shape bd-hero-shape-1">
-                                <img src="{{ asset('frontend') }}/assets/img/shape/curved-line-2.png"
-                                    alt="Shape not found">
-                            </div>
-                        </div>
-                        <div class="bd-hero-2">
-                            <div class="bd-hero-bg"
-                                data-background="{{ asset('frontend') }}/assets/img/hero/slider-2.jpg"></div>
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="bd-hero-content-wrapper-2 d-flex align-items-center">
-                                        <div class="bd-hero-content bd-hero-content-2 is-white">
-                                            <span class="animate__animated" data-animation="fadeInUp"
-                                                data-delay=".3s">Nursery Program</span>
-                                            <h1 class="bd-hero-title animate__animated" data-animation="fadeInUp"
-                                                data-delay=".5s">
-                                                Best Nursery Education
-                                            </h1>
-                                            <div class="bd-hero-btn animate__animated" data-animation="fadeInUp"
-                                                data-delay=".7s">
-                                                <a href="programs.html" class="bd-btn">
-                                                    <span class="bd-btn-inner">
-                                                        <span class="bd-btn-normal">Admission open 22-23</span>
-                                                        <span class="bd-btn-hover">Admission open 22-23</span>
-                                                    </span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="swiper-slide">
-                <div class="bd-hero-inner-2">
-                    <div class="container">
-                        <div class="bd-hero-shape-wrapper d-none d-lg-block">
-                            <div class="bd-hero-shape bd-hero-shape-2">
-                                <img src="{{ asset('frontend') }}/assets/img/shape/curved-line-2.png"
-                                    alt="Shape not found">
-                            </div>
-                            <div class="bd-hero-shape bd-hero-shape-1">
-                                <img src="{{ asset('frontend') }}/assets/img/shape/curved-line-2.png"
-                                    alt="Shape not found">
-                            </div>
-                        </div>
-                        <div class="bd-hero-2">
-                            <div class="bd-hero-bg"
-                                data-background="{{ asset('frontend') }}/assets/img/hero/slider-1.jpg"></div>
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="bd-hero-content-wrapper-2 d-flex align-items-center">
-                                        <div class="bd-hero-content bd-hero-content-2 is-white">
-                                            <span class="animate__animated" data-animation="fadeInUp"
-                                                data-delay=".3s">Kindergarten Program</span>
-                                            <h1 class="bd-hero-title animate__animated" data-animation="fadeInUp"
-                                                data-delay=".5s">
-                                                Best Junior KG Education
-                                            </h1>
-                                            <div class="bd-hero-btn animate__animated" data-animation="fadeInUp"
-                                                data-delay=".7s">
-                                                <a href="programs.html" class="bd-btn">
-                                                    <span class="bd-btn-inner">
-                                                        <span class="bd-btn-normal">Admission open 22-23</span>
-                                                        <span class="bd-btn-hover">Admission open 22-23</span>
-                                                    </span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
-    </div>
+    @endif
 </section>
 <!-- hero area end here  -->

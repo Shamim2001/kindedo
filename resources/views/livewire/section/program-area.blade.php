@@ -12,11 +12,18 @@
             </div>
         </div>
         <div class="row">
+            @if ($programs)
+
+
             <div class="col-12">
                 <div class="bd-program-active swiper-container wow fadeInUp" data-wow-duration="1s"
                     data-wow-delay=".4s">
                     <div class="swiper-wrapper pt-20">
-                        @foreach ($programs as $program)
+                        @php
+                            $randbg = rand(1, 6);
+                        @endphp
+
+                        @foreach ($programs as $key=>$program)
                             <div class="swiper-slide">
                                 <div class="bd-program-2 clr-1">
                                     <div class="bd-program-thumb-wrapper">
@@ -122,6 +129,7 @@
                     </div>
                 </div>
             </div>
+            @endif
         </div>
         <!-- program slider dots pagination  -->
         <div class="bd-program-pagination bd-dots-pagination fill-pagination"></div>
