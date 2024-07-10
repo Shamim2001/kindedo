@@ -17,7 +17,22 @@
                 <div class="bd-gallery-active swiper-container wow fadeInUp" data-wow-duration="1s"
                     data-wow-delay=".5s">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide">
+                        @foreach ($galleries as $gallery)
+                            <div class="swiper-slide">
+                                <div class="bd-gallery">
+                                    <div class="bd-gallery-thumb-wrapper">
+                                        <div class="bd-gallery-thumb">
+                                            <img src="{{ getAssetUrl($gallery->name, 'programs') }}" alt="img not found!">
+                                        </div>
+                                        <div class="bd-gallery-icon">
+                                            <a href="{{ getAssetUrl($gallery->name, 'programs') }}" class="popup-image"><i
+                                                    class="flaticon-eye"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                        {{-- <div class="swiper-slide">
                             <div class="bd-gallery">
                                 <div class="bd-gallery-thumb-wrapper">
                                     <div class="bd-gallery-thumb">
@@ -68,7 +83,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
                 <!-- program slider dots pagination  -->

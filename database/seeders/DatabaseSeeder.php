@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\About;
 use App\Models\Faq;
+use App\Models\Gallery;
 use App\Models\Program;
 use App\Models\Promo;
 use App\Models\Slider;
@@ -33,5 +34,6 @@ class DatabaseSeeder extends Seeder
         Promo::factory(5)->create();
         Program::factory(20)->create();
         Faq::factory(10)->create();
+        Gallery::factory(70)->create();
     }
 }

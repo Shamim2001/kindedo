@@ -17,9 +17,9 @@ class ProgramDetails extends Component
 
     public function render()
     {
-        $programs = Program::latest()->take(10)->get();
+
         return view('livewire.pages.program-details',[
-            'programs' => $programs
+            'programs' => Program::latest()->take(10)->get(),
         ]);
     }
 }
