@@ -84,7 +84,7 @@
                                <a href="about.html">About</a>
                             </li>
                             <li class="has-dropdown has-mega-menu">
-                               <a href="programs.html">Programs</a>
+                               <a href="{{ route('front.programs') }}">Programs</a>
                                <ul class="mega-menu mega-menu-2">
                                   <li>
                                      <a href="javascript:void(0);" class="d-lg-none">List 1</a>

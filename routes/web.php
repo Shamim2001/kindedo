@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 // Frontend routes
 Route::as('front.')->group(function () {
     Route::get('/', [FrontendController::class, 'home'])->name('index');
+    Route::get('programs', [FrontendController::class, 'programs'])->name('programs');
     Route::get('program/{slug}', [FrontendController::class, 'programDetails'])->name('program.details');
     Route::get('teachers', [FrontendController::class, 'teachers'])->name('teacher.index');
 });

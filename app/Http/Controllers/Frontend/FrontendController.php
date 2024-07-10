@@ -15,6 +15,12 @@ class FrontendController extends Controller
     }
 
 
+    // Programs
+    function programs(){
+
+        return view('frontend.program.index');
+    }
+
     // Program Single
     function programDetails($program){
         $program = Program::where('slug', $program)->first();
