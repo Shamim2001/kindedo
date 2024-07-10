@@ -5,9 +5,7 @@
             <div class="col-xl-6 col-lg-6">
                 <div class="bd-faq-content-2 mb-60 wow fadeInLeft" data-wow-duration="1s" data-wow-delay=".3s">
                     <div class="bd-section-title-wrapper mb-25">
-                        <h2 class="bd-section-title mb-0">Know More
-                            <br>About Kindedo
-                        </h2>
+                        <h2 class="bd-section-title mb-0">{{ $faq->title }}</h2>
                     </div>
                     <div class="bd-faq">
                         <div class="accordion" id="accordionExample">
@@ -22,8 +20,7 @@
                                 <div id="collapseOne" class="accordion-collapse collapse show"
                                     aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                     <div class="accordion-body">
-                                        <p>Some states and countries implement mandatory early childhood education. With
-                                            such rules, many preschool and kindergarten learning centers are built.</p>
+                                        <p>{{ $faq->about }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -38,10 +35,7 @@
                                 <div id="collapseTwo" class="accordion-collapse collapse"
                                     aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                                     <div class="accordion-body">
-                                        <p>Right after you book your party, you’ll receive an email confirming the date,
-                                            time, and details about what’s included in the package you’ve selected
-                                            result.
-                                        </p>
+                                        <p>{{ $faq->child_desc }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -56,9 +50,7 @@
                                 <div id="collapseThree" class="accordion-collapse collapse"
                                     aria-labelledby="headingThree" data-bs-parent="#accordionExample">
                                     <div class="accordion-body">
-                                        <p>There will also be some fantastic outdoor entertainment, desserts and drinks,
-                                            plus tours of the School for those who want to continue the celebrations.
-                                        </p>
+                                        <p>{{ $faq->year_desc }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -71,7 +63,7 @@
                     <div class="bd-faq-thumb">
                         <div class="bd-faq-thumb-mask p-relative wow fadeInRight" data-wow-duration="1s"
                             data-wow-delay=".3s">
-                            <img src="{{ asset('frontend') }}/assets/img/faq/1.jpg" alt="Image not found">
+                            <img src="{{ getAssetUrl($faq->image, 'faqs') }}" alt="Image not found">
                             <div class="panel-2 wow"></div>
                         </div>
                     </div>

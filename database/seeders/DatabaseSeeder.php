@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\About;
 use App\Models\Program;
 use App\Models\Promo;
 use App\Models\Slider;
@@ -27,5 +28,6 @@ class DatabaseSeeder extends Seeder
         Slider::factory(10)->create();
         Promo::factory(5)->create();
         Program::factory(20)->create();
+        About::factory(10)->create();
     }
 }
