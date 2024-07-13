@@ -1,8 +1,10 @@
 <?php
 
-use App\Http\Controllers\Frontend\FrontendController;
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Backend\DashboardController;
+use App\Http\Controllers\Backend\SliderController;
+use App\Http\Controllers\Frontend\FrontendController;
 
 
 // Frontend routes
@@ -13,9 +15,20 @@ Route::as('front.')->group(function () {
     Route::get('teachers', [FrontendController::class, 'teachers'])->name('teacher.index');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::prefix('dashboard')->middleware(['auth', 'verified'])->group(function () {
+
+    Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index');
+    Route::get('elements', [DashboardController::class, 'elements'])->name('dashboard.elements');
+    // General
+    Route::post('editor/image/upload', [DashboardController::class, 'imageUpload'])->name('editor.file.upload');
+
+    Route::resource('slider', SliderController::class);
+    // Route::resource('user', UserController::class);
+
+});
+
+
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
