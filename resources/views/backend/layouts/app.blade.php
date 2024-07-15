@@ -49,11 +49,15 @@
     <link href="{{ asset('backend/assets/css/custom.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('backend/assets/css/custom.css?ts=' . time()) }}" rel="stylesheet" type="text/css">
     {{-- jQuey --}}
+
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.8.2/dist/alpine.min.js" defer></script>
+
+
     <script src="{{ asset('backend/assets/js/jquery.min.js') }}"></script>
 
 
     <x-tinymce-config />
-    @vite('resources/js/app.js')
+
     @stack('css')
 </head>
 
@@ -200,6 +204,7 @@
 
 
     @stack('js')
+
 </body>
 
 

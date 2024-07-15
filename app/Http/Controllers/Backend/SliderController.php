@@ -13,8 +13,8 @@ class SliderController extends Controller
      */
     public function index()
     {
-        $sliders = Slider::latest()->paginate(10);
-        return view('backend.slider.index', compact('sliders'));
+        // $sliders = Slider::latest()->paginate(10);
+        return view('backend.slider.index');
     }
 
     /**
