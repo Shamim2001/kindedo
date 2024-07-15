@@ -3,39 +3,83 @@
 namespace App\Livewire\Pages;
 
 use App\Models\Slider;
-use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use Illuminate\Support\Facades\Storage;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 
 class SliderIndex extends Component
 {
     use WithFileUploads;
+    use LivewireAlert;
 
     public $title, $subtitle, $image, $status;
     public $currentSlider;
+
     public $previewImage;
+    public $isEdit= false;
+
+
+    public function save()
+    {
+
+        // Validate the input
+        $this->validate([
+            'title'    => 'required|string|max:255',
+            'subtitle' => 'required|string|max:255',
+            'image'    => 'required',
+            'status'   => 'required',
+        ]);
+
+        // image save
+        if($this->image) {
+            $filename = getImageName($this->image->getClientOriginalName());
+            $this->image->storeAs('sliders', $filename);
+        }
+
+
+
+        // Save the slider
+        Slider::create([
+            'title' => $this->title,
+            'subtitle' => $this->subtitle,
+            'image' => $filename,
+            'status' => $this->status ? 'active': 'inactive',
+        ]);
+
+        // Message
+        $this->dispatch('success',  'Slider created successfully');
+
+        // Reset form fields
+        $this->reset();
+        // $this->dispatch('close-modal');
+        $this->modalClose();
+    }
+
+
+
+
 
     // Edit Slider
     function editSlider($id) {
+
+        // dd($id);
         $this->currentSlider = Slider::find($id);
 
-        $this->title = $this->currentSlider->title;
-        $this->subtitle = $this->currentSlider->subtitle;
-        $this->status = $this->currentSlider->status == 'active' ? true : false;
+        $this->title        = $this->currentSlider->title;
+        $this->subtitle     = $this->currentSlider->subtitle;
+        $this->status       = $this->currentSlider->status == 'active' ? true: false;
         $this->previewImage = $this->currentSlider->image;
 
-        $this->dispatch('open-edit-modal');
+        // $this->dispatch('open-modal');
+        $this->modalOpen();
+
+        // $this->reset('currentSlider');
     }
 
-    function closeEditModal()  {
-        $this->reset('currentSlider');
-        $this->dispatch('close-edit-modal');
-    }
 
     public function update()
     {
-        // dd($this->status);
-
         // Validate the input
         $this->validate([
             'title'    => 'required|string|max:255',
@@ -62,9 +106,28 @@ class SliderIndex extends Component
         ]);
 
 
-        $this->closeEditModal();
+        $this->reset();
+
+        // $this->dispatch('close-modal');
+        $this->modalClose();
 
     }
+
+    public function submit()
+    {
+        if ($this->isEdit) {
+            $this->update();
+        } else {
+            $this->save();
+        }
+    }
+
+    // function closeEditModal()  {
+    //     $this->reset('currentSlider');
+    //     $this->dispatch('close-edit-modal');
+    // }
+
+
 
 
 
@@ -77,38 +140,13 @@ class SliderIndex extends Component
     }
 
 
-
-    public function save()
+    private function resetForm()
     {
-        // dd($this->status);
-
-        // Validate the input
-        $this->validate([
-            'title'    => 'required|string|max:255',
-            'subtitle' => 'required|string|max:255',
-            'image'    => 'required',
-            'status'   => 'required',
-        ]);
-
-        // If image
-        if($this->image) {
-            $filename = getImageName($this->image->getClientOriginalName());
-            $image = $this->image->storeAs('sliders', $filename);
-        }
-
-
-
-        // Save the slider (example code)
-        Slider::create([
-            'title' => $this->title,
-            'subtitle' => $this->subtitle,
-            'image' => $filename,
-            'status' => $this->status ? 'active': 'inactive',
-        ]);
-
-        // Reset form fields
-        $this->reset();
+        $this->reset(['title', 'subtitle', 'image', 'status', 'currentSlider']);
     }
+
+
+
 
     public function render()
     {

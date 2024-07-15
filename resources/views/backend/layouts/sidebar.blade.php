@@ -39,7 +39,7 @@
                 <!-- Slider -->
                 <x-nav-dropdown id="slider" title="Slider" :active="request()->routeIs('slider.*')" icon="ri-function-line">
                      <x-nav-item title="View All" icon="" :url="route('slider.index')" :active="request()->routeIs('slider.index')" />
-                     <x-nav-item title="Add New" :url="route('slider.create')" icon="" :active="request()->routeIs('slider.create')" />
+                     {{-- <x-nav-item title="Add New" :url="route('slider.create')" icon="" :active="request()->routeIs('slider.create')" /> --}}
                  </x-nav-dropdown>
 
 

@@ -1,7 +1,8 @@
 <div>
     <div class="text-end mb-3">
         <!-- Replace the href with an Alpine.js action to open the modal -->
-        <a href="#" class="btn btn-dark" wire:click="modalOpen">Add New</a>
+        <a href="javascript:void" class="btn btn-dark"
+            x-on:click="isOpen = true; isEdit = false; $wire.set('isEdit', false)" wire:click="modalOpen">Add New</a>
     </div>
 
     <!-- Table Dark -->
@@ -37,10 +38,11 @@
                     <td style="width: 10%" class="text-center">
                         <div class="hstack gap-3 flex-wrap justify-content-center">
 
-                            <a wire:click="editSlider({{ $slider->id }})" data-bs-toggle="tooltip"
-                                data-bs-custom-class="info-tooltip" data-bs-placement="top"
-                                data-bs-original-title="Edit" class="link-info fs-base"><i
+                            <a href="#" class="link-info fs-base"
+                                x-on:click="isOpen = true; isEdit = true; $wire.set('isEdit', true); $wire.editSlider({{ $slider->id }})"><i
                                     class="ri-edit-2-line"></i></a>
+
+
                             <a data-bs-toggle="tooltip" data-bs-custom-class="danger-tooltip" data-bs-placement="top"
                                 data-bs-original-title="Delete" href="javascript:void(0);"
                                 onclick="deleteRecord({{ $slider->id }})" class="link-danger fs-base"><i
@@ -70,17 +72,16 @@
     </div>
 
     {{-- add new slider popup --}}
-    <div x-data="{ isOpen: false }" class="text-end mb-3">
-        {{-- <a href="#" class="btn btn-dark" @click="isOpen = true">Add New</a> --}}
+    <div x-data="{ isOpen: false, isEdit: false }" class="text-end mb-3">
 
         <div x-show="isOpen" x-on:open-modal.window="isOpen = true" x-on:close-modal.window="isOpen = false"
-            style="display: none;">
+            style="display: none;" x-transition.duration.500ms>
             <!-- Modal content -->
             <div class="modal" tabindex="-1" role="dialog" style="display: block;">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title">Add New Slider</h5>
+                            <h5 class="modal-title" x-text="isEdit ? 'Edit Slider' : 'Add New Slider' "></h5>
                             <button type="button" class="btn-close" wire:click="modalClose"></button>
                         </div>
                         <div class="modal-body">
@@ -100,7 +101,7 @@
                                         </div>
                                         <div class="col-3">
                                             <div class="form-check form-switch form-switch-primary">
-                                                <h5 class="fs-md fw-medium ">Status</h5>
+                                                <h5 class="fs-lg fw-medium ">Status</h5>
                                                 <input class="form-check-input" type="checkbox" role="switch"
                                                     id="SwitchCheck7" wire:model="status" value="active">
                                                 <label class="form-check-label" for="SwitchCheck7">Active</label>
@@ -129,10 +130,16 @@
                                             <img src="{{ $image->temporaryUrl() }}" alt="Uploaded Image"
                                                 class="img-thumbnail mt-2" style="max-width: 200px;">
                                         @endif
+
+                                        @if ($previewImage && empty($image))
+                                            <img src="{{ getAssetUrl($previewImage, 'uploads/sliders') }}"
+                                                alt="Uploaded Image" class="img-thumbnail mt-2"
+                                                style="max-width: 200px;">
+                                        @endif
                                     </div>
-                                    <div class="mt-3">
-                                        <button class="btn btn-primary" wire:click.prevent="save"
-                                            type="button">Create</button>
+                                    <div class="text-center mt-5">
+                                        <button class="btn btn-primary w-25" wire:click.prevent="submit"
+                                            type="button" x-text="isEdit ? 'Update' : 'Create' "></button>
                                     </div>
                                 </div>
                             </form>
@@ -145,104 +152,36 @@
     </div>
 
 
-    {{-- edit slider popup --}}
-    <div x-data="{ editmodal: false }" class="text-end mb-3">
-        {{-- <a href="#" class="btn btn-dark" @click="editmodal = true">Add New</a> --}}
-
-        <div x-show="editmodal" x-on:open-edit-modal.window="editmodal = true"
-            x-on:close-edit-modal.window="editmodal = false" style="display: none;">
-            <!-- Modal content -->
-            <div class="modal" tabindex="-1" role="dialog" style="display: block;">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">Edit Slider</h5>
-                            <button type="button" class="btn-close" wire:click="closeEditModal"></button>
-                        </div>
-                        <div class="modal-body">
-                            @if ($currentSlider)
-
-                                <!-- Your form goes here -->
-                                <form class="text-start">
-                                    <div class="modal-body">
-                                        <div class="row align-items-center">
-                                            <div class="col-9">
-                                                <div class="mb-3">
-                                                    <label for="title">Title</label>
-                                                    <input type="text" wire:model="title" id="title"
-                                                        class="form-control">
-                                                    @error('title')
-                                                        <span class="text-danger">{{ $message }}</span>
-                                                    @enderror
-                                                </div>
-                                            </div>
-                                            <div class="col-3">
-                                                <div class="form-check form-switch form-switch-primary">
-                                                    <h5 class="fs-md fw-medium ">Status</h5>
-                                                    <input class="form-check-input" type="checkbox" role="switch"
-                                                        id="SwitchCheck7" wire:model="status">
-                                                    <label class="form-check-label" for="SwitchCheck7">Active</label>
-                                                </div>
-                                                {{ var_export($status) }}
-                                            </div>
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="subtitle">Sub Title</label>
-                                            <input type="text" wire:model="subtitle" id="subtitle"
-                                                class="form-control">
-                                            @error('subtitle')
-                                                <span class="text-danger">{{ $message }}</span>
-                                            @enderror
-                                        </div>
-
-
-
-                                        <div class="mb-3">
-                                            <label for="image">Image</label>
-                                            <input type="file" wire:model="image" id="image"
-                                                class="form-control-file">
-
-                                            @error('image')
-                                                <span class="text-danger">{{ $message }}</span>
-                                            @enderror
-
-                                            @if ($image)
-                                                <img src="{{ $image->temporaryUrl() }}" alt="Uploaded Image"
-                                                    class="img-thumbnail mt-2" style="max-width: 200px;">
-                                            @endif
-
-                                            @if ($previewImage && empty($image))
-                                                <img src="{{ getAssetUrl($previewImage, 'uploads/sliders') }}"
-                                                    alt="Uploaded Image" class="img-thumbnail mt-2"
-                                                    style="max-width: 200px;">
-                                            @endif
-                                        </div>
-                                        <div class="mt-3">
-                                            <button class="btn btn-primary" wire:click.prevent="update"
-                                                type="button">Update</button>
-                                        </div>
-                                    </div>
-                                </form>
-                            @endif
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-backdrop fade show"></div>
-        </div>
-    </div>
-
     <style>
         .modal {
             --tb-modal-width: 50%;
         }
+
+        #image {
+            border: 2px solid var(--tb-green);
+            padding: 6px 10px;
+            width: 100%;
+            border-radius: 5px;
+        }
     </style>
+
+    <script>
+        window.addEventListener('success', function(event) {
+            let message = event.detail;
+
+            Toastify({
+                text: message,
+                duration: 3000,
+                newWindow: true,
+                close: true,
+                gravity: "bottom", // `top` or `bottom`
+                position: "right", // `left`, `center` or `right`
+                stopOnFocus: true, // Prevents dismissing of toast on hover
+                style: {
+                    background: "linear-gradient(to right, rgb(202, 138, 4), rgb(220, 38, 38))",
+                },
+                onClick: function() {} // Callback after click
+            }).showToast();
+        });
+    </script>
 </div>
-
-{{-- @push('css')
-    <style>
-        .modal {
-            --tb-modal-width: 50%;
-        }
-    </style>
-@endpush --}}
