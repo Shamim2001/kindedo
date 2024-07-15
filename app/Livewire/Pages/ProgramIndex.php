@@ -32,9 +32,10 @@ class ProgramIndex extends Component
         ]);
 
         // image save
+        $thumb = null;
         if($this->image) {
-            $filename = getImageName($this->image->getClientOriginalName());
-            $this->image->storeAs('programs', $filename);
+            $thumb = getImageName($this->image->getClientOriginalName());
+            $this->image->storeAs('programs', $thumb);
         }
 
         // Save the Program
@@ -43,7 +44,7 @@ class ProgramIndex extends Component
             'slug'        => Str::slug($this->name),
             'title'       => $this->title,
             'subtitle'    => $this->subtitle,
-            'image'       => $filename,
+            'image'       => $thumb,
             'excerpt'     => $this->excerpt,
             'description' => $this->description,
         ]);
@@ -89,10 +90,11 @@ class ProgramIndex extends Component
         ]);
 
         // If image
+        $thumb = $this->previewImage;
         if($this->image) {
-            Storage::delete('programs/'. $this->previewImage);
-            $filename = getImageName($this->image->getClientOriginalName());
-            $this->image->storeAs('programs', $filename);
+            Storage::delete('programs/'. $thumb);
+            $thumb = getImageName($this->image);
+            $this->image->storeAs('programs', $thumb);
         }
 
         // Save the slider (example code)
@@ -101,7 +103,7 @@ class ProgramIndex extends Component
             'slug'        => Str::slug($this->name),
             'title'       => $this->title,
             'subtitle'    => $this->subtitle,
-            'image'       => $filename,
+            'image'       => $thumb,
             'excerpt'     => $this->excerpt,
             'description' => $this->description,
         ]);

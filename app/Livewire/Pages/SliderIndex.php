@@ -32,16 +32,17 @@ class SliderIndex extends Component
         ]);
 
         // image save
+        $thumb = null;
         if($this->image) {
-            $filename = getImageName($this->image->getClientOriginalName());
-            $this->image->storeAs('sliders', $filename);
+            $thumb = getImageName($this->image->getClientOriginalName());
+            $this->image->storeAs('sliders', $thumb);
         }
 
         // Save the slider
         Slider::create([
             'title' => $this->title,
             'subtitle' => $this->subtitle,
-            'image' => $filename,
+            'image' => $thumb,
             'status' => $this->status ? 'active': 'inactive',
         ]);
 
@@ -84,18 +85,19 @@ class SliderIndex extends Component
             'status'   => 'required',
         ]);
 
-        // If image
+        // upload image
+        $thumb = $this->previewImage;
         if($this->image) {
-            Storage::delete('sliders/'. $this->previewImage);
-            $filename = getImageName($this->image->getClientOriginalName());
-            $this->image->storeAs('sliders', $filename);
+            Storage::delete('sliders/'. $thumb);
+            $thumb = getImageName($this->image->getClientOriginalName());
+            $this->image->storeAs('sliders', $thumb);
         }
 
         // Save the slider (example code)
         $this->currentSlider->update([
             'title' => $this->title,
             'subtitle' => $this->subtitle,
-            'image' => $this->image ?  $filename : $this->previewImage,
+            'image' => $this->image ?  $thumb : $this->previewImage,
             'status' => $this->status ? 'active': 'inactive',
         ]);
 

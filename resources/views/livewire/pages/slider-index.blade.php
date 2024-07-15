@@ -76,7 +76,7 @@
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" x-text="isEdit ? 'Edit Slider' : 'Add New Slider' "></h5>
+                            <h5 class="modal-title">{{ $isEdit ? 'Edit Slider' : 'Add New Slider' }}</h5>
                             <button type="button" class="btn-close" wire:click="modalClose"></button>
                         </div>
                         <div class="modal-body">
@@ -133,7 +133,7 @@
                                     </div>
                                     <div class="text-center mt-5">
                                         <button class="btn btn-primary w-25" wire:click.prevent="submit"
-                                            type="button" x-text="isEdit ? 'Update' : 'Create' "></button>
+                                            type="button">{{ $isEdit ? 'Update' : 'Create' }}</button>
                                     </div>
                                 </div>
                             </form>
