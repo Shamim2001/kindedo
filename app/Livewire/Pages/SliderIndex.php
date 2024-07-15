@@ -37,8 +37,6 @@ class SliderIndex extends Component
             $this->image->storeAs('sliders', $filename);
         }
 
-
-
         // Save the slider
         Slider::create([
             'title' => $this->title,
@@ -52,7 +50,8 @@ class SliderIndex extends Component
 
         // Reset form fields
         $this->reset();
-        // $this->dispatch('close-modal');
+
+        // dispatch('close-modal');
         $this->modalClose();
     }
 
@@ -63,7 +62,6 @@ class SliderIndex extends Component
     // Edit Slider
     function editSlider($id) {
 
-        // dd($id);
         $this->currentSlider = Slider::find($id);
 
         $this->title        = $this->currentSlider->title;
@@ -71,10 +69,8 @@ class SliderIndex extends Component
         $this->status       = $this->currentSlider->status == 'active' ? true: false;
         $this->previewImage = $this->currentSlider->image;
 
-        // $this->dispatch('open-modal');
+        // dispatch('open-modal');
         $this->modalOpen();
-
-        // $this->reset('currentSlider');
     }
 
 
@@ -95,8 +91,6 @@ class SliderIndex extends Component
             $this->image->storeAs('sliders', $filename);
         }
 
-
-
         // Save the slider (example code)
         $this->currentSlider->update([
             'title' => $this->title,
@@ -108,7 +102,6 @@ class SliderIndex extends Component
 
         $this->reset();
 
-        // $this->dispatch('close-modal');
         $this->modalClose();
 
     }
@@ -122,27 +115,44 @@ class SliderIndex extends Component
         }
     }
 
-    // function closeEditModal()  {
-    //     $this->reset('currentSlider');
-    //     $this->dispatch('close-edit-modal');
-    // }
-
-
-
-
-
+    // modal open model
     function modalOpen() {
         $this->dispatch('open-modal');
     }
 
+    // close modal
     function modalClose() {
         $this->dispatch('close-modal');
     }
 
 
-    private function resetForm()
+    // slider delete
+    function deleteSlider($id) {
+
+        $this->dispatch('alert:confirm',
+            type: 'warning',
+            message: __('Do you want to delete this product?'),
+            position: 'center',
+            confirmButtonText: 'Yes, delete it!',
+            denyButtonText: "Don't save",
+            showDenylButton: false,
+            showCancelButton: true,
+            slider: $id
+        );
+    }
+
+    // Define Listener
+    protected $listeners = ['deleteConfirmed'];
+
+    // Confirmation Deleted
+    public function deleteConfirmed($id)
     {
-        $this->reset(['title', 'subtitle', 'image', 'status', 'currentSlider']);
+        $slider = Slider::findOrFail($id);
+
+        if ($slider) {
+            $slider->delete();
+            $this->dispatch('success',  'Slider deleted successfully');
+        }
     }
 
 

@@ -31,29 +31,24 @@
                     <td style="width: 35%">{{ $slider->subtitle }}</td>
                     <td style="width: 10%">
                         <span
-                            class="badge fs-sm {{ $slider->status == 'active' ? 'bg-primary' : 'bg-danger' }} w-100">{{ $slider->status }}</span>
+                            class="badge fs-sm {{ $slider->status == 'active' ? 'bg-primary' : 'bg-danger' }} w-100 text-capitalize">{{ $slider->status }}</span>
 
                     </td>
 
                     <td style="width: 10%" class="text-center">
                         <div class="hstack gap-3 flex-wrap justify-content-center">
 
-                            <a href="#" class="link-info fs-base"
+                            <a href="#" class="btn btn-outline-primary btn-icon btn-sm cursor-pointer"
                                 x-on:click="isOpen = true; isEdit = true; $wire.set('isEdit', true); $wire.editSlider({{ $slider->id }})"><i
                                     class="ri-edit-2-line"></i></a>
 
 
                             <a data-bs-toggle="tooltip" data-bs-custom-class="danger-tooltip" data-bs-placement="top"
                                 data-bs-original-title="Delete" href="javascript:void(0);"
-                                onclick="deleteRecord({{ $slider->id }})" class="link-danger fs-base"><i
-                                    class="ri-delete-bin-line"></i></a>
+                                wire:click.prevent="deleteSlider({{ $slider->id }})"
+                                class="btn btn-outline-danger btn-icon btn-sm"><i class="ri-delete-bin-line"></i></a>
 
 
-                            <form id="delete-form-{{ $slider->id }}" action="{{ route('slider.destroy', $slider) }}"
-                                method="POST" style="display: none">
-                                @csrf
-                                @method('DELETE')
-                            </form>
                         </div>
                     </td>
                 </tr>
@@ -110,8 +105,7 @@
                                     </div>
                                     <div class="mb-3">
                                         <label for="subtitle">Sub Title</label>
-                                        <input type="text" wire:model="subtitle" id="subtitle"
-                                            class="form-control">
+                                        <input type="text" wire:model="subtitle" id="subtitle" class="form-control">
                                         @error('subtitle')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
@@ -166,6 +160,27 @@
     </style>
 
     <script>
+        // Confirmed Listener
+        window.addEventListener('alert:confirm', function(event) {
+            let data = event.detail;
+            Swal.fire({
+                icon: data.type,
+                title: data.message,
+                showDenyButton: data.showDenylButton ?? false,
+                showCancelButton: data.showCancelButton ?? false,
+                confirmButtonText: data.confirmButtonText,
+                denyButtonText: data.denyButtonText ?? ''
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    @this.call('deleteConfirmed', data.slider);
+                } else if (result.isDenied) {
+                    Swal.fire("Changes are not saved", "", "info");
+                }
+            });
+        });
+
+
+        // Success Listener
         window.addEventListener('success', function(event) {
             let message = event.detail;
 
@@ -174,11 +189,11 @@
                 duration: 3000,
                 newWindow: true,
                 close: true,
-                gravity: "bottom", // `top` or `bottom`
-                position: "right", // `left`, `center` or `right`
-                stopOnFocus: true, // Prevents dismissing of toast on hover
+                gravity: "bottom",
+                position: "right",
+                stopOnFocus: true,
                 style: {
-                    background: "linear-gradient(to right, rgb(202, 138, 4), rgb(220, 38, 38))",
+                    background: "linear-gradient(to right, #00b09b, #96c93d)",
                 },
                 onClick: function() {} // Callback after click
             }).showToast();
