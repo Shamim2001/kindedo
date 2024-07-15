@@ -43,7 +43,7 @@
                                 </div>
                                 <div class="bd-hero-2">
                                     <div class="bd-hero-bg"
-                                        data-background="{{ getAssetUrl($slider->image, 'sliders') }}"></div>
+                                        data-background="{{ getAssetUrl($slider->image, 'uploads/sliders') }}"></div>
                                     <div class="row">
                                         <div class="col-lg-6">
                                             <div class="bd-hero-content-wrapper-2 d-flex align-items-center">

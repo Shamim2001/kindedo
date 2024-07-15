@@ -54,7 +54,7 @@
                 </tr>
             @empty
                 <tr>
-                    <td colspan="5" class="text-center">No slider(s) found!</td>
+                    <td colspan="6" class="text-center">No slider(s) found!</td>
                 </tr>
             @endforelse
 
