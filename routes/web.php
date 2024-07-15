@@ -23,7 +23,9 @@ Route::prefix('dashboard')->middleware(['auth', 'verified'])->group(function () 
     Route::post('editor/image/upload', [DashboardController::class, 'imageUpload'])->name('editor.file.upload');
 
     Route::resource('slider', SliderController::class);
-    // Route::resource('user', UserController::class);
+
+    Route::get('programs', [DashboardController::class, 'programs'])->name('program.index');
+
 
 });
 

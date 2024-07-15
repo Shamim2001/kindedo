@@ -1,2 +1,2 @@
-@props(['name', 'class'])
-<textarea name="{{ $name }}" class="{{ $class ?? '' }}" id="tinyeditorinstance">{!! $slot !!}</textarea>
+@props(['name', 'class' ])
+<textarea wire:model="{{$name}}" name="{{ $name }}" class="{{ $class ?? '' }}" id="tinyeditorinstance">{!! $slot !!}</textarea>
