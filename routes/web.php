@@ -26,6 +26,7 @@ Route::prefix('dashboard')->middleware(['auth', 'verified'])->group(function () 
 
     Route::get('programs', [DashboardController::class, 'programs'])->name('program.index');
     Route::get('faq', [DashboardController::class, 'faqs'])->name('faq.index');
+    Route::get('promo', [DashboardController::class, 'promo'])->name('promo.index');
 
 
 });

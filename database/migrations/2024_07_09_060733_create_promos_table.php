@@ -14,11 +14,10 @@ return new class extends Migration
         Schema::create('promos', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('slug');
-            $table->string('image');
-            $table->text('subtitle')->nullable();
-            $table->longText('description')->nullable();
+            $table->text('excerpt')->nullable();
             $table->text('video_url')->nullable();
+            $table->string('image');
+            $table->longText('description')->nullable();
             $table->enum('status', ['active', 'inactive'])->default('active');
             $table->timestamps();
         });

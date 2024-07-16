@@ -21,4 +21,8 @@ class DashboardController extends Controller
     function faqs() : View {
         return view('backend.faq.index');
     }
+
+    function promo() : View {
+        return view('backend.promo.index');
+    }
 }

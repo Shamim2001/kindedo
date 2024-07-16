@@ -47,9 +47,14 @@
                      <x-nav-item title="View All" icon="" :url="route('program.index')" :active="request()->routeIs('program.index')" />
                  </x-nav-dropdown>
 
-                 <!-- Program -->
+                 <!-- Faq -->
                  <x-nav-dropdown id="faq" title="Faq" :active="request()->routeIs('faq.*')" icon="ri-function-line">
                      <x-nav-item title="View All" icon="" :url="route('faq.index')" :active="request()->routeIs('faq.index')" />
+                 </x-nav-dropdown>
+
+                 <!-- Promo -->
+                 <x-nav-dropdown id="promo" title="Promo" :active="request()->routeIs('promo.*')" icon="ri-function-line">
+                     <x-nav-item title="View All" icon="" :url="route('promo.index')" :active="request()->routeIs('promo.index')" />
                  </x-nav-dropdown>
 
 
