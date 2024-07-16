@@ -25,6 +25,7 @@ Route::prefix('dashboard')->middleware(['auth', 'verified'])->group(function () 
     Route::resource('slider', SliderController::class);
 
     Route::get('programs', [DashboardController::class, 'programs'])->name('program.index');
+    Route::get('faq', [DashboardController::class, 'faqs'])->name('faq.index');
 
 
 });

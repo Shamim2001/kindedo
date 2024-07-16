@@ -132,10 +132,9 @@ class SliderIndex extends Component
 
     // slider delete
     function deleteSlider($id) {
-
         $this->dispatch('alert:confirm',
             type: 'warning',
-            message: __('Do you want to delete this product?'),
+            message: 'Do you want to delete this product?',
             position: 'center',
             confirmButtonText: 'Yes, delete it!',
             denyButtonText: "Don't save",

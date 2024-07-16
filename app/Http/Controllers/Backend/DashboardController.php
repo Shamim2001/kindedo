@@ -17,4 +17,8 @@ class DashboardController extends Controller
     function programs() : View {
         return view('backend.program.index');
     }
+
+    function faqs() : View {
+        return view('backend.faq.index');
+    }
 }
