@@ -16,7 +16,7 @@
             <div class="col-12">
                 <div class="bd-gallery-active swiper-container wow fadeInUp" data-wow-duration="1s"
                     data-wow-delay=".5s">
-                    @if (count($galleries) > 0)
+                    @if (!empty($galleries))
 
                         <div class="swiper-wrapper">
                             @foreach ($galleries as $gallery)
@@ -24,11 +24,11 @@
                                     <div class="bd-gallery">
                                         <div class="bd-gallery-thumb-wrapper">
                                             <div class="bd-gallery-thumb">
-                                                <img src="{{ getAssetUrl($gallery->name, 'programs') }}"
+                                                <img src="{{ getAssetUrl($gallery->name, 'uploads/gallery') }}"
                                                     alt="img not found!">
                                             </div>
                                             <div class="bd-gallery-icon">
-                                                <a href="{{ getAssetUrl($gallery->name, 'programs') }}"
+                                                <a href="{{ getAssetUrl($gallery->name, 'uploads/gallery') }}"
                                                     class="popup-image"><i class="flaticon-eye"></i></a>
                                             </div>
                                         </div>

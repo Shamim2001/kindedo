@@ -185,7 +185,7 @@
                <div class="bd-footer-copyright pb-5 pt-25">
                   <div class="bd-footer-copyright-wrap d-flex justify-content-center">
                      <div class="bd-footer-copyright-text is-white pb-20">
-                        <p>Copyrighted by &copy;2023 <a href=""
+                        <p>&copy; {{ date('Y') }} All Rights Reserved. <a href=""
                               ></a>
                         </p>
                      </div>

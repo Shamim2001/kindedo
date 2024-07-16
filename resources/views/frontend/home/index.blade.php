@@ -16,7 +16,7 @@
     @livewire('section.teacher-area')
 
 
-    @livewire('section.join-area')
+    {{-- @livewire('section.join-area') --}}
 
 
 

@@ -11,7 +11,7 @@ class GalleryArea extends Component
     public function render()
     {
         return view('livewire.section.gallery-area', [
-            'galleries' => Gallery::take(10)->get(),
+            'galleries' => Gallery::latest()->take(20)->get(),
         ]);
     }
 }

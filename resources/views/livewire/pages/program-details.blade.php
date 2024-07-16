@@ -14,7 +14,7 @@
                                 @foreach ($program->gallery as $item)
                                     <div class="swiper-slide">
                                         <div class="bd-program-details-slider-thumb">
-                                            <img src="{{ getAssetUrl($item->name, 'programs') }}" alt="img not found!">
+                                            <img src="{{ getAssetUrl($item->name, 'uploads/gallery') }}" alt="{{$item->name}}">
                                         </div>
                                     </div>
                                 @endforeach
@@ -251,7 +251,7 @@
                                         <div class="bd-program-thumb-wrapper">
                                             <a href="program-details.html">
                                                 <div class="bd-program-thumb">
-                                                    <img src="{{ getAssetUrl($item->image) }}"
+                                                    <img src="{{ getAssetUrl($item->image, 'uploads/programs') }}"
                                                         alt="{{ $item->name }}">
                                                 </div>
                                             </a>

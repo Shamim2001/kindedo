@@ -14,7 +14,7 @@
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="headingOne_{{$key}}">
                                    <button class="accordion-button {{ $key == 0 ? '' : 'collapsed' }}" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne_{{$key}}" aria-expanded="{{$key == 0 ? 'true': 'false'}}" aria-controls="collapseOne_{{$key}}">
-                                      {{ $faq->title }}
+                                      {{ $faq->name }}
                                    </button>
                                 </h2>
                                 <div id="collapseOne_{{$key}}" class="accordion-collapse collapse {{$key == 0 ? 'show': ''}}" aria-labelledby="headingOne_{{$key}}" data-bs-parent="#accordionExample">
@@ -35,7 +35,7 @@
                     <div class="bd-faq-thumb">
                         <div class="bd-faq-thumb-mask p-relative wow fadeInRight" data-wow-duration="1s"
                             data-wow-delay=".3s">
-                            <img src="{{ getAssetUrl($faqs[0]->image, 'faqs') }}" alt="Image not found">
+                            <img src="{{ getAssetUrl($faqs[0]->image, 'uploads/faqs') }}" alt="Image not found">
 
                             <div class="panel-2 wow"></div>
                         </div>
