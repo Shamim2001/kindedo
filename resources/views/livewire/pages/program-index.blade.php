@@ -88,23 +88,25 @@
                                         <div class="col-8">
                                             <div class="mb-3">
                                                 <label for="name">Name</label>
-                                                <input type="text" wire:model="name" id="name" class="form-control">
+                                                <input type="text" wire:model="name" id="name"
+                                                    class="form-control">
                                                 @error('name')
                                                     <span class="text-danger">{{ $message }}</span>
                                                 @enderror
                                             </div>
 
 
-                                            <div class="mb-3" wire:ignore>
+                                            <div class="mb-3">
                                                 <label for="excerpt">Excerpt</label>
-                                                <x-editor id="excerpt" wire:model="excerpt" name="excerpt" />
+                                                <textarea class="form-control" wire:model="excerpt" id="excerpt" rows="4" placeholder="Enter your text"></textarea>
                                                 @error('excerpt')
                                                     <span class="text-danger">{{ $message }}</span>
                                                 @enderror
                                             </div>
-                                            <div class="mb-3" wire:ignore>
+                                            <div class="mb-3">
                                                 <label for="description">Description</label>
-                                                <x-editor id="description" wire:model="description" name="description" ></x-editor>
+                                                <textarea class="form-control" wire:model="description" id="description" rows="7"
+                                                    placeholder="Enter your message"></textarea>
                                                 @error('description')
                                                     <span class="text-danger">{{ $message }}</span>
                                                 @enderror
@@ -114,22 +116,24 @@
                                         <div class="col-4">
                                             <div class="mb-3">
                                                 <label for="title">Title</label>
-                                                <input type="text" wire:model="title" id="title" class="form-control">
+                                                <input type="text" wire:model="title" id="title"
+                                                    class="form-control">
                                                 @error('title')
                                                     <span class="text-danger">{{ $message }}</span>
                                                 @enderror
                                             </div>
                                             <div class="mb-3">
                                                 <label for="subtitle">Sub Title</label>
-                                                <textarea class="form-control" wire:model="subtitle" id="subtitle" rows="3" placeholder="Enter your message"></textarea>
+                                                <textarea class="form-control" wire:model="subtitle" id="subtitle" rows="3"
+                                                    placeholder="Enter your message"></textarea>
                                                 @error('subtitle')
                                                     <span class="text-danger">{{ $message }}</span>
                                                 @enderror
                                             </div>
-                                            <div class="mb-3">
+                                            <div class="mb-3 border border-success-subtle p-2 rounded-bottom rounded-3 border-2">
                                                 <label for="image">Image</label>
                                                 <input type="file" wire:model="image" id="image"
-                                                    class="form-control-file">
+                                                    class="form-control">
 
                                                 @error('image')
                                                     <span class="text-danger">{{ $message }}</span>
@@ -137,13 +141,36 @@
 
                                                 @if ($image)
                                                     <img src="{{ $image->temporaryUrl() }}" alt="Uploaded Image"
-                                                        class="img-thumbnail mt-2" style="max-width: 200px;">
+                                                        class="img-thumbnail mt-2" style="max-width: 100px;">
                                                 @endif
 
                                                 @if ($previewImage && empty($image))
                                                     <img src="{{ getAssetUrl($previewImage, 'uploads/programs') }}"
                                                         alt="Uploaded Image" class="img-thumbnail mt-2"
-                                                        style="max-width: 200px;">
+                                                        style="max-width: 100px;">
+                                                @endif
+                                            </div>
+                                            <div class="mb-3 border border-primary-subtle p-2 rounded-bottom rounded-3 border-2">
+                                                <label for="gallery">Gallery</label>
+                                                <input type="file" wire:model="gallery" id="gallery"
+                                                    class="form-control" multiple>
+
+                                                @error('gallery')
+                                                    <span class="text-danger">{{ $message }}</span>
+                                                @enderror
+
+                                                @if ($gallery)
+                                                    @foreach ($gallery as $item)
+                                                        <img src="{{ $item->temporaryUrl() }}" alt="Uploaded Image"
+                                                            class="mt-2" style="max-width: 70px;">
+                                                    @endforeach
+                                                @endif
+
+                                                @if ($media && empty($gallery))
+                                                    @foreach ($media as $item)
+                                                        <img src="{{ getAssetUrl($item['name'], 'uploads/gallery') }}" alt="Uploaded Image"
+                                                            class="mt-2" style="max-width: 70px;">
+                                                    @endforeach
                                                 @endif
                                             </div>
                                             <div class="text-center mt-4">
@@ -169,13 +196,6 @@
     <style>
         .modal {
             --tb-modal-width: 80%;
-        }
-
-        #image {
-            border: 2px solid var(--tb-green);
-            padding: 6px 10px;
-            width: 100%;
-            border-radius: 5px;
         }
     </style>
 

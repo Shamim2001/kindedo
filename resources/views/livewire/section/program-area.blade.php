@@ -24,7 +24,7 @@
                                         <div class="bd-program-thumb-wrapper">
                                             <a href="{{ route('front.program.details', $program->slug) }}">
                                                 <div class="bd-program-thumb-2">
-                                                    <img src="{{ getAssetUrl($program->image, 'programs') }}"
+                                                    <img src="{{ getAssetUrl($program->image, 'uploads/programs') }}"
                                                         alt="{{ $program->name }}">
                                                 </div>
                                             </a>
@@ -40,88 +40,6 @@
                                     </div>
                                 </div>
                             @endforeach
-                            {{-- <div class="swiper-slide">
-                            <div class="bd-program-2 clr-1">
-                                <div class="bd-program-thumb-wrapper">
-                                    <a href="program-details.html">
-                                        <div class="bd-program-thumb-2">
-                                            <img src="{{ asset('frontend') }}/assets/img/program/home-program-1.jpg" alt="Image not found">
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="bd-program-content mb-10">
-                                    <h3 class="bd-program-title"><a class="hover-clr-1"
-                                            href="program-details.html">Settling</a>
-                                    </h3>
-                                </div>
-                                <div class="bd-program-info-wrapper-2">
-                                    <div class="bd-program-info">
-                                        <h5 class="bd-program-info-title">4-5 Yrs <br><span>age</span></h5>
-                                    </div>
-                                    <div class="bd-program-info">
-                                        <h5 class="bd-program-info-title">5 Days <br><span>weekly</span></h5>
-                                    </div>
-                                    <div class="bd-program-info">
-                                        <h5 class="bd-program-info-title">3.30 Hrs<br><span>period</span></h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="bd-program-2 clr-2">
-                                <div class="bd-program-thumb-wrapper">
-                                    <a href="program-details.html">
-                                        <div class="bd-program-thumb-2">
-                                            <img src="{{ asset('frontend') }}/assets/img/program/home-program-2.jpg" alt="Image not found">
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="bd-program-content mb-10">
-                                    <h3 class="bd-program-title"><a class="hover-clr-2"
-                                            href="program-details.html">Play
-                                            Group</a>
-                                    </h3>
-                                </div>
-                                <div class="bd-program-info-wrapper-2">
-                                    <div class="bd-program-info">
-                                        <h5 class="bd-program-info-title">4-5 Yrs <br><span>age</span></h5>
-                                    </div>
-                                    <div class="bd-program-info">
-                                        <h5 class="bd-program-info-title">5 Days <br><span>weekly</span></h5>
-                                    </div>
-                                    <div class="bd-program-info">
-                                        <h5 class="bd-program-info-title">3.30 Hrs<br><span>period</span></h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="bd-program-2 clr-3">
-                                <div class="bd-program-thumb-wrapper">
-                                    <a href="program-details.html">
-                                        <div class="bd-program-thumb-2">
-                                            <img src="{{ asset('frontend') }}/assets/img/program/home-program-3.jpg" alt="Image not found">
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="bd-program-content mb-10">
-                                    <h3 class="bd-program-title"><a href="program-details.html"
-                                            class="hover-clr-3">Pre-Nursery</a>
-                                    </h3>
-                                </div>
-                                <div class="bd-program-info-wrapper-2">
-                                    <div class="bd-program-info">
-                                        <h5 class="bd-program-info-title">4-5 Yrs <br><span>age</span></h5>
-                                    </div>
-                                    <div class="bd-program-info">
-                                        <h5 class="bd-program-info-title">5 Days <br><span>weekly</span></h5>
-                                    </div>
-                                    <div class="bd-program-info">
-                                        <h5 class="bd-program-info-title">3.30 Hrs<br><span>period</span></h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> --}}
                         </div>
                     </div>
                 </div>

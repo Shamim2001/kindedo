@@ -125,6 +125,8 @@ class SliderIndex extends Component
     // close modal
     function modalClose() {
         $this->dispatch('close-modal');
+        $this->reset(['name', 'title', 'subtitle', 'excerpt', 'description', 'image']);
+
     }
 
 
