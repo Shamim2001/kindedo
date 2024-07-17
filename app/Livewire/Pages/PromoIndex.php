@@ -135,7 +135,7 @@ class PromoIndex extends Component
     // close modal
     function modalClose() {
         $this->dispatch('close-modal');
-        $this->reset(['name', 'title', 'excerpt', 'description', 'video_url', 'status', 'image']);
+        $this->reset();
 
     }
 

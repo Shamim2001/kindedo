@@ -118,17 +118,17 @@
                                                 </div>
                                             </div>
                                             <div class="mb-3">
-                                                <label for="vider_url">Video Url</label>
-                                                <input type="link" wire:model="vider_url" id="vider_url"
+                                                <label for="video_url">Video Url</label>
+                                                <input type="url" wire:model="video_url" id="video_url"
                                                     class="form-control">
-                                                @error('vider_url')
+                                                @error('video_url')
                                                     <span class="text-danger">{{ $message }}</span>
                                                 @enderror
                                             </div>
-                                            <div class="mb-3">
+                                            <div class="mb-3 border border-success-subtle p-2 rounded-bottom rounded-3 border-2">
                                                 <label for="image">Image</label>
                                                 <input type="file" wire:model="image" id="image"
-                                                    class="form-control-file">
+                                                    class="form-control">
 
                                                 @error('image')
                                                     <span class="text-danger">{{ $message }}</span>
@@ -145,8 +145,8 @@
                                                         style="max-width: 200px;">
                                                 @endif
                                             </div>
-                                            <div class="text-center mt-5">
-                                                <button class="btn btn-primary w-25" wire:click.prevent="submit"
+                                            <div class="text-center mt-5 w-100">
+                                                <button class="btn btn-primary" wire:click.prevent="submit"
                                                     type="button">{{ $isEdit ? 'Update' : 'Create' }}</button>
                                             </div>
                                         </div>
