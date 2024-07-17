@@ -111,6 +111,8 @@ class PromoIndex extends Component
             'status'      => $this->status ? 'active': 'inactive',
         ]);
 
+        // Dispatch success message
+        $this->dispatch('success', 'Promo updated successfully');
 
         $this->reset();
 
