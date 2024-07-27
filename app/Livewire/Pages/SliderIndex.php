@@ -101,11 +101,13 @@ class SliderIndex extends Component
             'status' => $this->status ? 'active': 'inactive',
         ]);
 
-
+        // Message
+        $this->dispatch('success',  'Slider updated successfully');
+        // reset input field
         $this->reset();
 
+        // Modal Close
         $this->modalClose();
-
     }
 
     public function submit()
@@ -125,7 +127,7 @@ class SliderIndex extends Component
     // close modal
     function modalClose() {
         $this->dispatch('close-modal');
-        $this->reset(['name', 'title', 'subtitle', 'excerpt', 'description', 'image']);
+        $this->reset(['title', 'subtitle',  'image', 'status']);
 
     }
 
