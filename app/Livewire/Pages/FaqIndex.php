@@ -91,7 +91,7 @@ class FaqIndex extends Component
         $thumb = $this->previewImage;
         if ($this->image) {
             Storage::delete('faqs/' . $thumb);
-            $thumb = getImageName($this->image);
+            $thumb = getImageName($this->image->getClientOriginalName());
             $this->image->storeAs('faqs', $thumb);
         }
 

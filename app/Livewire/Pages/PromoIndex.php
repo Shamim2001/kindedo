@@ -36,7 +36,7 @@ class PromoIndex extends Component
         // image save
         $thumb = null;
         if($this->image) {
-            $thumb = getImageName($this->image);
+            $thumb = getImageName($this->image->getClientOriginalName());
             $this->image->storeAs('promos', $thumb);
         }
 
@@ -97,7 +97,7 @@ class PromoIndex extends Component
         $thumb = $this->previewImage;
         if($this->image) {
             Storage::delete('promos/'. $thumb);
-            $thumb = getImageName($this->image);
+            $thumb = getImageName($this->image->getClientOriginalName());
             $this->image->storeAs('promos', $thumb);
         }
 

@@ -9,7 +9,7 @@ class HeroArea extends Component
 {
     public function render()
     {
-        $sliders = Slider::whereStatus('active')->get();
+        $sliders = Slider::whereStatus('active')->latest()->get();
         return view('livewire.section.hero-area', [
             'sliders' => $sliders
         ]);

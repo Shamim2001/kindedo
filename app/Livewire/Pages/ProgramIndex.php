@@ -107,7 +107,7 @@ class ProgramIndex extends Component
         $thumb = $this->previewImage;
         if ($this->image) {
             Storage::delete('programs/' . $thumb);
-            $thumb = getImageName($this->image);
+            $thumb = getImageName($this->image->getClientOriginalName());
             $this->image->storeAs('programs', $thumb);
         }
 

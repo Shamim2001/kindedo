@@ -7,7 +7,7 @@
                     <div class="bd-promotion-thumb">
                         <div class="bd-promotion-thumb-mask p-relative wow fadeInLeft" data-wow-delay=".3s"
                             data-wow-duration="1">
-                            <img src="{{ getAssetUrl($promo->image, 'promos') }}" alt="Image not found">
+                            <img src="{{ getAssetUrl($promo->image, 'uploads/promos') }}" alt="Image not found">
                             <div class="panel wow"></div>
                         </div>
                     </div>

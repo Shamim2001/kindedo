@@ -110,6 +110,13 @@
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                     </div>
+                                    <div class="mb-3">
+                                        <label for="btn_text">Button Text</label>
+                                        <input type="text" wire:model="btn_text" id="btn_text" class="form-control">
+                                        @error('btn_text')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
+                                    </div>
 
                                     <div class="mb-3">
                                         <label for="image">Image</label>
@@ -122,13 +129,13 @@
 
                                         @if ($image)
                                             <img src="{{ $image->temporaryUrl() }}" alt="Uploaded Image"
-                                                class="img-thumbnail mt-2" style="max-width: 200px;">
+                                                class="img-thumbnail mt-2" style="max-width: 150px;">
                                         @endif
 
                                         @if ($previewImage && empty($image))
                                             <img src="{{ getAssetUrl($previewImage, 'uploads/sliders') }}"
                                                 alt="Uploaded Image" class="img-thumbnail mt-2"
-                                                style="max-width: 200px;">
+                                                style="max-width: 150px;">
                                         @endif
                                     </div>
                                     <div class="text-center mt-5">

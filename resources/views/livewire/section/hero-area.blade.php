@@ -15,7 +15,7 @@
         </div>
     </div>
 
-    @if (count($sliders) > 0)
+    @if ($sliders)
         <!-- banner slider navigation  -->
         <div class="bd-hero-navigation mb-15 d-none d-md-flex">
             <button class="bd-hero-prev">

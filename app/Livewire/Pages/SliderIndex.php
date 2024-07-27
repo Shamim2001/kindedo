@@ -13,7 +13,7 @@ class SliderIndex extends Component
     use WithFileUploads;
     use LivewireAlert;
 
-    public $title, $subtitle, $image, $status;
+    public $title, $subtitle, $image, $status, $btn_text;
     public $currentSlider;
 
     public $previewImage;
@@ -42,6 +42,7 @@ class SliderIndex extends Component
         Slider::create([
             'title' => $this->title,
             'subtitle' => $this->subtitle,
+            'btn_text' => $this->btn_text,
             'image' => $thumb,
             'status' => $this->status ? 'active': 'inactive',
         ]);
@@ -67,6 +68,7 @@ class SliderIndex extends Component
 
         $this->title        = $this->currentSlider->title;
         $this->subtitle     = $this->currentSlider->subtitle;
+        $this->btn_text     = $this->currentSlider->btn_text;
         $this->status       = $this->currentSlider->status == 'active' ? true: false;
         $this->previewImage = $this->currentSlider->image;
 
@@ -127,7 +129,7 @@ class SliderIndex extends Component
     // close modal
     function modalClose() {
         $this->dispatch('close-modal');
-        $this->reset(['title', 'subtitle',  'image', 'status']);
+        $this->reset(['title', 'subtitle',  'image', 'status', 'btn_text']);
 
     }
 

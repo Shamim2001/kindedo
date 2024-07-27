@@ -10,7 +10,7 @@ class TeacherArea extends Component
     public function render()
     {
         return view('livewire.section.teacher-area', [
-            'teachers' => User::where('role', 'teacher')->take(4)->get(),
+            'teachers' => User::where('role', 'teacher')->take(4)->latest()->get(),
         ]);
     }
 }
