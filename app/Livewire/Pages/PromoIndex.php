@@ -112,7 +112,7 @@ class PromoIndex extends Component
         ]);
 
         // Dispatch success message
-        $this->dispatch('success', 'Promo updated successfully');
+        $this->dispatch('success', 'Promo updated successfully!');
 
         $this->reset();
 
