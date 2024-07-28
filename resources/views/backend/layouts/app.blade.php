@@ -50,7 +50,8 @@
     <link href="{{ asset('backend/assets/css/custom.css?ts=' . time()) }}" rel="stylesheet" type="text/css">
     {{-- jQuey --}}
 
-    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.8.2/dist/alpine.min.js" defer></script>
+    {{-- <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.8.2/dist/alpine.min.js" defer></script> --}}
+    {{-- <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script> --}}
 
 
     <script src="{{ asset('backend/assets/js/jquery.min.js') }}"></script>
@@ -199,6 +200,9 @@
     {{-- <script src="{{ asset('backend/assets/js/pages/mailbox.init.js') }}"></script> --}}
     {{-- Widget init --}}
     {{-- <script src="{{ asset('backend/assets/js/pages/widgets.init.js') }}"></script> --}}
+
+    <!-- Alpine.js -->
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
     <script src="{{ asset('backend/assets/js/custom.js') }}"></script>
 

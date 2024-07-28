@@ -1,7 +1,7 @@
 <div>
     <div class="text-end mb-3">
         <!-- Replace the href with an Alpine.js action to open the modal -->
-        <a href="javascript:void" class="btn btn-dark"
+        <a href="javascript:void(0);" class="btn btn-dark"
             x-on:click="isOpen = true; isEdit = false; $wire.set('isEdit', false)" wire:click="modalOpen">Add New</a>
     </div>
 
