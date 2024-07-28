@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Backend\DashboardController;
+use App\Http\Controllers\Backend\FaqController;
+use App\Http\Controllers\Backend\ProgramController;
+use App\Http\Controllers\Backend\PromoController;
 use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Frontend\FrontendController;
 
@@ -23,10 +26,13 @@ Route::prefix('dashboard')->middleware(['auth', 'verified'])->group(function () 
     Route::post('editor/image/upload', [DashboardController::class, 'imageUpload'])->name('editor.file.upload');
 
     Route::resource('slider', SliderController::class);
+    Route::resource('promo', PromoController::class);
+    Route::resource('program', ProgramController::class);
+    Route::resource('faq', FaqController::class);
 
-    Route::get('programs', [DashboardController::class, 'programs'])->name('program.index');
-    Route::get('faq', [DashboardController::class, 'faqs'])->name('faq.index');
-    Route::get('promo', [DashboardController::class, 'promo'])->name('promo.index');
+    // Route::get('programs', [DashboardController::class, 'programs'])->name('program.index');
+    // Route::get('faq', [DashboardController::class, 'faqs'])->name('faq.index');
+    // Route::get('promo', [DashboardController::class, 'promo'])->name('promo.index');
 
 
 });

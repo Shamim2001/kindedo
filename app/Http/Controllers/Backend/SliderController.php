@@ -94,7 +94,7 @@ class SliderController extends Controller
             'subtitle' => 'required|string|max:255',
             'btn_text' => 'required',
             'image'    => 'nullable',
-            'status'   => 'required',
+            'status'   => 'nullable',
         ]);
 
         try {

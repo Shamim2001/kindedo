@@ -1,0 +1,79 @@
+@extends('backend.layouts.app')
+@section('title', 'Edit Promo')
+@section('page-title', 'Edit Promo')
+
+
+@section('content')
+
+    <div class="text-end mb-2">
+        <a href="{{ route('promo.index') }}" class="btn btn-dark">Back</a>
+    </div>
+
+    <form action="{{ route('promo.update', $promo->id) }}" method="POST" enctype="multipart/form-data">
+        @csrf
+        @method('PUT')
+
+        <div class="row gx-5">
+            <div class="col-8">
+                <div class="mb-3">
+                    <label class="form-label" for="title">Title</label>
+                    <input type="text" name="title" id="title" placeholder="Enter type title" class="form-control"
+                        value="{{ $promo->title }}">
+                    @error('title')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="excerpt">Excerpt</label>
+                    <textarea class="form-control" name="excerpt" id="excerpt" rows="4" placeholder="Enter your text">{{ $promo->excerpt }}</textarea>
+                    @error('excerpt')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="description">Description</label>
+                    <x-editor name="description">{{ $promo->description }}</x-editor>
+                    @error('description')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="mb-3">
+                    <div class="form-check form-switch form-switch-primary">
+                        <h5 class="fs-lg fw-medium ">Status</h5>
+                        <input class="form-check-input" type="checkbox" role="switch" id="SwitchCheck7" name="status"
+                            value="active" {{ $promo->status == 'active' ? 'checked="checked"' : '' }}>
+                        <label class="form-check-label" for="SwitchCheck7">Active</label>
+                    </div>
+
+                    @error('status')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="video_url">Video Url</label>
+                    <input type="url" name="video_url" id="video_url" placeholder="Enter type video url"
+                        class="form-control" value="{{ $promo->video_url }}">
+                    @error('video_url')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="image">Image</label>
+                    <x-filepond id="image" name="image" file="{{ $promo->image }}" location="uploads/promos" />
+
+                    @error('image')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
+
+                <hr>
+                <div class="text-center mt-4">
+                    <button class="btn btn-primary w-100" type="submit">Update</button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+@endsection
