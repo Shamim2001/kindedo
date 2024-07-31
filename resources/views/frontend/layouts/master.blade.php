@@ -237,24 +237,23 @@
                      </div>
                      <div class="offcanvas__contact-text">
                         <a target="_blank"
-                           href="https://www.google.com/maps/place/Dhaka/@23.7806207,90.3492859,12z/data=!3m1!4b1!4m5!3m4!1s0x3755b8b087026b81:0x8fa563bbdd5904c2!8m2!3d23.8104753!4d90.4119873">12/A,
-                           Mirnada City Tower, NYC</a>
+                           href="https://www.google.com/maps/place/Dhaka/@23.7806207,90.3492859,12z/data=!3m1!4b1!4m5!3m4!1s0x3755b8b087026b81:0x8fa563bbdd5904c2!8m2!3d23.8104753!4d90.4119873">{{$setting->address}}</a>
                      </div>
                   </li>
                   <li class="d-flex align-items-center gap-2">
                      <div class="offcanvas__contact-icon">
-                        <a href="tel:+088889797697"><i class="far fa-phone"></i></a>
+                        <a href="tel:{{$setting->phone}}"><i class="far fa-phone"></i></a>
                      </div>
                      <div class="offcanvas__contact-text">
-                        <a href="tel:+088889797697">088889797697</a>
+                        <a href="tel:{{$setting->phone}}">{{$setting->phone}}</a>
                      </div>
                   </li>
                   <li class="d-flex align-items-center gap-2">
                      <div class="offcanvas__contact-icon">
-                        <a href="mailto:support@gmail.com"><i class="fal fa-envelope"></i></a>
+                        <a href="mailto:{{$setting->support}}"><i class="fal fa-envelope"></i></a>
                      </div>
                      <div class="offcanvas__contact-text">
-                        <a href="mailto:support@gmail.com">support@mail.com</a>
+                        <a href="mailto:{{$setting->support}}">{{$setting->support}}</a>
                      </div>
                   </li>
                </ul>
