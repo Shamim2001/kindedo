@@ -75,7 +75,7 @@
                      <div class="col-lg-6">
                         <div class="bd-footer-top-widget-1 mb-60">
                            <div class="bd-footer-logo mb-15">
-                              <a href="index.html"> <img src="{{ asset('frontend') }}/assets/img/logo/logo-white.svg" alt="img not found!"></a>
+                              <a href="index.html"> <img src="{{ getAssetUrl($setting->footer_logo, 'uploads/setting') }}" alt="img not found!"></a>
                            </div>
                            <div class="bd-footer-widget-content is-white mb-40">
                               <p>In our Adult Participation programs, for most students, it is their first program in

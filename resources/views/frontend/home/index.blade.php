@@ -1,5 +1,5 @@
 @extends('frontend.layouts.master')
-@section('title', 'MCT School - Home')
+@section('title', 'Mct School - Home')
 
 @section('content')
     @livewire('section.hero-area')

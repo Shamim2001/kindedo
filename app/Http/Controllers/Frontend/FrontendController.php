@@ -36,4 +36,10 @@ class FrontendController extends Controller
         $teachers = User::get();
         return view('frontend.teacher.index', compact('teachers'));
     }
+
+
+    // Teachers
+    function contact() : View {
+        return view('frontend.contact.index');
+    }
 }
