@@ -10,7 +10,7 @@
    <meta name="viewport" content="width=device-width, initial-scale=1">
 
    <!-- Place favicon.ico in the root directory -->
-   <link rel="shortcut icon" type="image/x-icon" href="{{ asset('frontend') }}/assets/img/logo/favicon.png">
+   <link rel="shortcut icon" type="image/x-icon" href="{{ getAssetUrl($setting->favicon, 'uploads/setting') }}">
 
    <!-- CSS here -->
    <link rel="stylesheet" href="{{ asset('frontend') }}/assets/css/bootstrap.css">
@@ -171,11 +171,10 @@
                               <h4 class="bd-footer-widget-title is-white mb-20">Contact Us</h4>
                               <div class="bd-footer-contact is-white">
                                  <ul>
-                                    <li><i class="fa-light fa-location-dot"></i><a href="#">14/A, Kilix Home Tower,
-                                          NYC</a></li>
-                                    <li><i class="fa-light fa-phone"></i><a href="tel:9072003462">907-200-3462</a></li>
+                                    <li><i class="fa-light fa-location-dot"></i><a href="#">{{$setting->address}}</a></li>
+                                    <li><i class="fa-light fa-phone"></i><a href="tel:9072003462">{{$setting->phone}}</a></li>
                                     <li><i class="fa-light fa-envelope"></i><a
-                                          href="mailto:support@kindedo.com">Support@kindedo.com</a></li>
+                                          href="mailto:{{$setting->support}}">{{$setting->support}}</a></li>
                                  </ul>
                               </div>
                            </div>
@@ -186,7 +185,7 @@
                <div class="bd-footer-copyright pb-5 pt-25">
                   <div class="bd-footer-copyright-wrap d-flex justify-content-center">
                      <div class="bd-footer-copyright-text is-white pb-20">
-                        <p>&copy; {{ date('Y') }} All Rights Reserved. <a href=""
+                        <p>{{$setting->copyright}}<a href=""
                               ></a>
                         </p>
                      </div>
@@ -206,7 +205,7 @@
             <div class="offcanvas__top mb-40 d-flex justify-content-between align-items-center">
                <div class="offcanvas__logo logo">
                   <a href="index.html">
-                     <img src="{{ asset('frontend') }}/assets/img/logo/logo.svg" alt="logo">
+                     <img src="{{ getAssetUrl($setting->main_logo, 'uploads/setting') }}" alt="logo">
                   </a>
                </div>
                <div class="offcanvas__close">

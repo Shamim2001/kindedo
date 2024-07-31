@@ -16,7 +16,7 @@
                                   <i class="fa-sharp fa-solid fa-flag"></i>
                                </div>
                                <div class="bd-header-meta-text">
-                                  <p>Journey Since 1990</p>
+                                  <p>{{ $setting->since }}</p>
                                </div>
                             </div>
                             <div class="bd-header-meta-item d-flex align-items-center">
@@ -24,7 +24,7 @@
                                   <i class="fas fa-map-marker-alt"></i>
                                </div>
                                <div class="bd-header-meta-text">
-                                  <p><a href="#">1870 N State St, California, 95482 United States</a></p>
+                                  <p><a href="#">{{ $setting->address }}</a></p>
                                </div>
                             </div>
                          </div>
@@ -38,7 +38,7 @@
                                   <i class="flaticon-phone-call"></i>
                                </div>
                                <div class="bd-header-meta-text">
-                                  <p><a href="tel:9072003462">907-200-3462</a></p>
+                                  <p><a href="{{ $setting->phone }}">{{ $setting->phone }}</a></p>
                                </div>
                             </div>
 
@@ -49,7 +49,7 @@
                                   <i class="fas fa-envelope"></i>
                                </div>
                                <div class="bd-header-meta-text">
-                                  <p><a href="mailto:support@kindedo.com">support@kindedo.com</a></p>
+                                  <p><a href="mailto:{{$setting->support}}">{{$setting->support}}</a></p>
                                </div>
                             </div>
                             <div class="bd-header-meta-item d-flex align-items-center">
@@ -57,7 +57,7 @@
                                   <i class="fas fa-clock"></i>
                                </div>
                                <div class="bd-header-meta-text">
-                                  <p>8.00am-4.00pm</p>
+                                  <p>{{ time() }}</p>
                                </div>
                             </div>
                          </div>
@@ -78,7 +78,7 @@
                 <div class="d-flex align-items-center justify-content-between">
                    <div class="bd-header-logo">
                       <a href="{{ route('front.index') }}">
-                         <img src="{{ asset('frontend') }}/assets/img/logo/logo.svg" alt="logo">
+                         <img src="{{ getAssetUrl($setting->main_logo, 'uploads/setting') }}" alt="logo">
                       </a>
                    </div>
                    <div class="bd-main-menu d-none d-lg-flex align-items-center">

@@ -35,5 +35,7 @@ class DatabaseSeeder extends Seeder
         Program::factory(20)->create();
         Faq::factory(10)->create();
         Gallery::factory(70)->create();
+
+        $this->call(SettingSeeder::class);
     }
 }

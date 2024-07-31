@@ -57,6 +57,9 @@
                      <x-nav-item title="View All" icon="" :url="route('promo.index')" :active="request()->routeIs('promo.index')" />
                  </x-nav-dropdown>
 
+                 <!-- Setting -->
+                 <x-nav-item title="Setting" icon="ri ri-settings-2-line" :url="route('setting.index')" :active="request()->routeIs('setting.index')" />
+
 
 
              </ul>

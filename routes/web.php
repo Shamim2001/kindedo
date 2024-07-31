@@ -2,11 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\FaqController;
-use App\Http\Controllers\Backend\ProgramController;
 use App\Http\Controllers\Backend\PromoController;
 use App\Http\Controllers\Backend\SliderController;
+use App\Http\Controllers\Backend\ProgramController;
+use App\Http\Controllers\Backend\SettingController;
+use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Frontend\FrontendController;
 
 
@@ -33,6 +34,9 @@ Route::prefix('dashboard')->middleware(['auth', 'verified'])->group(function () 
     // Route::get('programs', [DashboardController::class, 'programs'])->name('program.index');
     // Route::get('faq', [DashboardController::class, 'faqs'])->name('faq.index');
     // Route::get('promo', [DashboardController::class, 'promo'])->name('promo.index');
+
+    Route::get('setting', [SettingController::class, 'index'])->name('setting.index');
+    Route::put('setting/update', [SettingController::class, 'update'])->name('setting.update');
 
 
 });
