@@ -1,0 +1,20 @@
+/* .bd-main-menu ul li .submenu {
+    width: 260px;
+  }
+  .bd-main-menu ul li .submenu li a:hover {
+    border-bottom: 1px solid var(--bd-common-white);
+  }
+  .bd-main-menu ul li .submenu li:hover > a {
+    padding-inline-start: 5px;
+  }
+.bd-main-menu ul li .submenu li.has-dropdown > a::after {
+    right: 0px;
+  }
+
+.bd-main-menu ul li .submenu li:hover > .submenu {
+	left: 106%;
+} */
+
+.bd-header-logo {
+	width: 150px;
+}

@@ -115,7 +115,7 @@
 }
 
 /*---------------------------------
-	typography css start 
+	typography css start
 ---------------------------------*/
 body {
   font-family: var(--bd-ff-body);
@@ -326,7 +326,7 @@ i[class^=flaticon-] {
 }
 
 /*---------------------------------
-    common classes css start 
+    common classes css start
 ---------------------------------*/
 .radius-24 {
   border-radius: 24px;
@@ -476,7 +476,7 @@ i[class^=flaticon-] {
 }
 
 /*----------------------------------------
-    Body Overlay 
+    Body Overlay
 -----------------------------------------*/
 .body-overlay {
   background-color: rgba(0, 0, 0, 0.6);
@@ -2165,7 +2165,7 @@ i[class^=flaticon-] {
   z-index: 1;
 }
 .bd-header-logo img {
-  width: 100%;
+  width: 50%;
 }
 @media only screen and (min-width: 576px) and (max-width: 767px) {
   .bd-header-logo {
@@ -2359,7 +2359,7 @@ i[class^=flaticon-] {
 }
 .bd-main-menu ul li a {
   display: inline-block;
-  font-size: 18px;
+  font-size: 16px;
   color: var(--bd-common-black);
   padding: 28px 0;
   line-height: 30px;
@@ -2597,7 +2597,7 @@ i[class^=flaticon-] {
   position: absolute;
   top: 100%;
   inset-inline-start: -30%;
-  width: 200px;
+  width: 280px;
   background: var(--bd-theme-1);
   z-index: 99;
   -webkit-transition: all 0.3s ease-out 0s;

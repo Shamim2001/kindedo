@@ -31,6 +31,19 @@
                       </div>
                       <div class="bd-header-top-right d-flex align-items-center">
                          <div class="bd-header-meta-items d-flex align-items-center">
+
+
+                            <div class="bd-header-meta-item d-flex align-items-center">
+                               <div class="bd-header-meta-icon">
+                                  <i class="flaticon-phone-call"></i>
+                               </div>
+                               <div class="bd-header-meta-text">
+                                  <p><a href="tel:9072003462">907-200-3462</a></p>
+                               </div>
+                            </div>
+
+
+
                             <div class="bd-header-meta-item d-flex align-items-center">
                                <div class="bd-header-meta-icon">
                                   <i class="fas fa-envelope"></i>
@@ -71,20 +84,37 @@
                    <div class="bd-main-menu d-none d-lg-flex align-items-center">
                       <nav id="mobile-menu">
                          <ul>
-                            <li class="has-dropdown">
+                            <!-- <li class="has-dropdown"> -->
+                            <li>
                                <a href="{{ route('front.index') }}">Home</a>
+                               <!-- <ul class="submenu">
+                                   <li><a href="{{ route('front.index') }}">Home Style 1</a></li>
+                                   <li><a href="index-2.html">Home Style 2</a>
+                                   </li>
+                                   <li><a href="index-3.html">Home Style 3</a></li>
+                                </ul> -->
+                            </li>
+                            <li class="has-dropdown ">
+                               <a href="#">About</a>
                                <ul class="submenu">
-                                  <li><a href="{{ route('front.index') }}">Home Style 1</a></li>
-                                  <li><a href="index-2.html">Home Style 2</a>
+                                  <li><a href="#">About Our School</a></li>
+                                  <li><a href="index-2.html">Message From Management</a>
                                   </li>
-                                  <li><a href="index-3.html">Home Style 3</a></li>
+                                  <!-- <li><a href="index-3.html">Message from The Vice Principle</a></li> -->
+                                  <li><a href="index-3.html">Governing Body</a></li>
+                                  <li><a href="index-3.html">Teacher Panel</a></li>
+                                  <li><a href="index-3.html">Administrative Team</a></li>
+                                  <li><a href="index-3.html">Procedures and Policies</a></li>
                                </ul>
                             </li>
-                            <li>
-                               <a href="about.html">About</a>
-                            </li>
+
+
+
+
+
+
                             <li class="has-dropdown has-mega-menu">
-                               <a href="{{ route('front.programs') }}">Programs</a>
+                               <a href="{{ route('front.programs') }}">Academics</a>
                                <ul class="mega-menu mega-menu-2">
                                   <li>
                                      <a href="javascript:void(0);" class="d-lg-none">List 1</a>
@@ -92,58 +122,34 @@
                                         <li> <a href="program-details.html" class="mega-program">
                                               <div class="mega-menu-2-inner-num"><span>01</span></div>
                                               <div class="mega-menu-2-inner-title">
-                                                 <h6>Settling</h6>
-                                                 <span>4-5 Yrs</span>
+                                                 <h6>Junior Section</h6>
+                                                 <span>Play Group to KG-2</span>
                                               </div>
                                            </a></li>
                                         <li> <a href="program-details.html" class="mega-program">
                                               <div class="mega-menu-2-inner-num"><span>02</span></div>
                                               <div class="mega-menu-2-inner-title">
-                                                 <h6>Play Group</h6>
-                                                 <span>4-5 Yrs</span>
+                                                 <h6>Mid Section</h6>
+                                                 <span>Class-1 to Class-5</span>
                                               </div>
                                            </a></li>
                                         <li> <a href="program-details.html" class="mega-program">
                                               <div class="mega-menu-2-inner-num"><span>03</span></div>
                                               <div class="mega-menu-2-inner-title">
-                                                 <h6>Play Group</h6>
-                                                 <span>5-6 Yrs</span>
+                                                 <h6>Senior Section</h6>
+                                                 <span>Class-6 to Class-10</span>
                                               </div>
                                            </a></li>
                                      </ul>
                                   </li>
-                                  <li>
-                                     <a href="javascript:void(0);" class="d-lg-none">List 2</a>
-                                     <ul>
-                                        <li> <a href="program-details.html" class="mega-program">
-                                              <div class="mega-menu-2-inner-num"><span>04</span></div>
-                                              <div class="mega-menu-2-inner-title">
-                                                 <h6>Nuesery</h6>
-                                                 <span>4-5 Yrs</span>
-                                              </div>
-                                           </a></li>
-                                        <li> <a href="program-details.html" class="mega-program">
-                                              <div class="mega-menu-2-inner-num"><span>05</span></div>
-                                              <div class="mega-menu-2-inner-title">
-                                                 <h6>Junior Kg</h6>
-                                                 <span>4-5 Yrs</span>
-                                              </div>
-                                           </a></li>
-                                        <li> <a href="program-details.html" class="mega-program">
-                                              <div class="mega-menu-2-inner-num"><span>06</span></div>
-                                              <div class="mega-menu-2-inner-title">
-                                                 <h6>Senior Kg</h6>
-                                                 <span>6-7 Yrs</span>
-                                              </div>
-                                           </a></li>
-                                     </ul>
-                                  </li>
+
                                   <li class="test">
                                      <a href="javascript:void(0);" class="d-lg-none">list 3</a>
                                      <ul>
                                         <li>
                                            <div class="mega-menu-2-inner-thumb p-relative">
-                                              <img src="{{ asset('frontend') }}/assets/img/logo/mega-menu-1.png" alt="img not found!">
+                                              <img src="{{ asset('frontend') }}/assets/img/logo/mega-menu-1.png"
+                                                 alt="img not found!">
                                               <div class="mega-menu-2-inner-thumb-content">
                                                  <h4>Join New Program</h4>
                                                  <div class="mega-menu-2-inner-thumb-btn mb-25">
@@ -157,84 +163,55 @@
                                </ul>
                             </li>
                             <li class="has-dropdown">
-                               <a href="shop.html">Shop</a>
+                               <a href="shop.html">Admission</a>
                                <ul class="submenu">
-                                  <li><a href="shop.html">Shop Main</a></li>
-                                  <li><a href="shop-details.html">Shop Details</a></li>
-                                  <li><a href="wishlist.html">Wishlist</a></li>
-                                  <li><a href="cart.html">Cart</a></li>
-                                  <li><a href="checkout.html">Checkout</a></li>
+                                  <li><a href="shop.html">Wy Choose Guidance</a></li>
+                                  <li><a href="shop-details.html">Tution Fees</a></li>
+                                  <li><a href="wishlist.html">How to Apply</a></li>
+                                  <li><a href="cart.html">Apply Online</a></li>
                                </ul>
                             </li>
-                            <li class="has-dropdown has-mega-menu">
-                               <a href="#">Pages</a>
-                               <ul class="mega-menu">
-                                  <li><a href="javasript:void(0);" class="mega-menu-title">Page Layout 1</a>
-                                     <ul>
-                                        <li> <a href="programs.html">Program</a></li>
-                                        <li><a href="program-details.html">Program Details</a></li>
-                                        <li><a href="teacher.html">Teacher</a></li>
-                                        <li><a href="teacher-details.html">Teacher Details</a></li>
-                                        <li><a href="time-table.html">Time Table</a></li>
-                                     </ul>
-                                  </li>
-                                  <li><a href="javasript:void(0);" class="mega-menu-title">Page Layout 2</a>
-                                     <ul>
-                                        <li><a href="testimonial.html">Testimonial</a></li>
-                                        <li><a href="gallery.html">Gallery</a></li>
-                                        <li><a href="faq.html">FAQ</a></li>
-                                        <li><a href="classes.html">Class</a></li>
-                                        <li><a href="class-details.html">Class Details</a></li>
-                                     </ul>
-                                  </li>
-                                  <li><a href="javasript:void(0);" class="mega-menu-title">Page Layout 3</a>
-                                     <ul>
-                                        <li><a href="news.html">News Main</a></li>
-                                        <li><a href="news-sidebar.html">News Sidebar</a></li>
-                                        <li><a href="error-404.html">Error Page</a></li>
-                                        <li><a href="news-classic.html">News Classic</a></li>
-                                        <li><a href="news-details.html">News Details</a></li>
-                                     </ul>
-                                  </li>
-                               </ul>
+                            <li>
+                               <a href="{{ route('front.index') }}">Residential information</a>
+                            </li>
+                            <li>
+                               <a href="news.html">Our Policies</a>
                             </li>
                             <li class="has-dropdown">
-                               <a href="news.html">News</a>
+                               <a href="shop.html">Activities</a>
                                <ul class="submenu">
-                                  <li><a href="news.html">News Default</a></li>
-                                  <li><a href="news-sidebar.html">News Sidebar</a></li>
-                                  <li><a href="news-classic.html">News Classic</a></li>
-                                  <li><a href="news-details.html">News Details</a></li>
+                                  <li><a href="shop.html">Academic Calendar</a></li>
+                                  <li><a href="shop-details.html">News & Updates</a></li>
+                                  <li><a href="wishlist.html">Events</a></li>
                                </ul>
+                            </li>
+
+                            <li>
+                               <a href="news.html">Gallery</a>
                             </li>
                             <li>
                                <a href="contact.html">Contact</a>
                             </li>
                          </ul>
                       </nav>
-                      <div class="bd-search-btn-wrapper">
-                         <button class="bd-search-open-btn">
-                            <i class="flaticon-search"></i>
-                         </button>
-                      </div>
                    </div>
                    <div class="bd-header-bottom-right d-flex justify-content-end align-items-center">
-                      <div class="bd-header-meta-item d-none bd-header-menu-meta d-xxl-flex align-items-center">
-                         <div class="bd-header-meta-icon">
-                            <i class="flaticon-phone-call"></i>
-                         </div>
-                         <div class="bd-header-meta-text">
-                            <p><a href="tel:9072003462">907-200-3462</a></p>
-                         </div>
-                      </div>
-                      <div class="bd-header-btn d-none d-xl-block">
+                      <!-- <div class="bd-header-meta-item d-none bd-header-menu-meta d-xxl-flex align-items-center">
+                          <div class="bd-header-meta-icon">
+                             <i class="flaticon-phone-call"></i>
+                          </div>
+                          <div class="bd-header-meta-text">
+                             <p><a href="tel:9072003462">907-200-3462</a></p>
+                          </div>
+                       </div> -->
+                      {{-- <div class="bd-header-btn d-none d-xl-block">
                          <a href="contact.html" class="bd-btn">
                             <span class="bd-btn-inner">
                                <span class="bd-btn-normal">Apply now</span>
                                <span class="bd-btn-hover">Apply now</span>
                             </span>
                          </a>
-                      </div>
+                      </div> --}}
                       <div class="header-hamburger">
                          <button type="button" class="hamburger-btn offcanvas-open-btn">
                             <span></span>
