@@ -48,6 +48,19 @@ class SettingController extends Controller
             }
 
 
+            // Social Media
+            $social_media = [];
+
+            foreach ($request->social_name as $key => $name) {
+                if (!empty($name)) {
+                    $social_media[] = [
+                        'name' => $name,
+                        'url'  => $request->social_url[$key],
+                    ];
+                }
+            }
+
+
             // Update Setting
             $setting->update([
                 'main_logo'        => $main_logo,
@@ -60,6 +73,7 @@ class SettingController extends Controller
                 'phone'            => $request->phone,
                 'support'          => $request->support,
                 'copyright'        => $request->copyright,
+                'social_media'        => json_encode($social_media),
             ]);
 
             // Return redirect

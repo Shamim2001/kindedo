@@ -13,6 +13,24 @@ class SettingSeeder extends Seeder
      */
     public function run(): void
     {
+        $socials = [
+            [
+                'name' => 'facebook',
+                'url'  => 'https://www.facebook.com',
+            ],
+            [
+                'name' => 'youtube',
+                'url'  => 'https://www.youtube.com',
+            ],
+            [
+                'name' => 'linkedin',
+                'url'  => 'https://www.linkedin.com',
+            ],
+            [
+                'name' => 'instagram',
+                'url'  => 'https://www.instagram.com',
+            ],
+        ];
         Setting::create([
             'since'            => 'Journey Since 1990',
             'address'          => '1870 N State St, California, 95482 United States',
@@ -22,8 +40,9 @@ class SettingSeeder extends Seeder
             'site_description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque neque aspernatur sunt! Laudantium a iure quam optio aliquid delectus rerum quos assumenda, et alias officia quo quia suscipit. Minima, voluptas!',
             'main_logo'        => 'main-logo.svg',
             'footer_logo'      => 'footer-logo.svg',
-            'favicon'      => 'favicon.svg',
+            'favicon'          => 'favicon.svg',
             'copyright'        => '© 2024 All Rights Reserved.',
+            'social_media'     => json_encode($socials),
         ]);
     }
 }

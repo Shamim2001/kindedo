@@ -64,19 +64,50 @@
                     <input type="text" class="form-control" name="copyright" id="copyright"
                         value="{{ $setting->copyright }}">
                 </div>
+
+                <div class="mb-3">
+                    <label for="copyright" class="form-label">Social Media</label>
+                    <div class="row mb-3">
+                        @foreach (json_decode($setting->social_media, false) as $key => $social)
+                            <div class="col-12 mb-3">
+
+                                <div class="input-group">
+                                    <div class="input-group-text p-0">
+                                        <i class="ri-{{ $social->name }}-fill"
+                                            style="width: 55px;font-size: 33px;"></i>
+
+                                    </div>
+                                    <div class="col-4 me-3">
+                                        <div class="form-floating">
+                                            <input type="text" class="form-control" id="social-name-{{ $key }}"
+                                                name="social_name[]" placeholder="Enter social name" value="{{ $social->name }}">
+                                            <label for="social-name-{{ $key }}">Name</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-floating">
+                                            <input type="text" class="form-control" name="social_url[]" id="social-url-{{$key}}" placeholder="Enter your url" value="{{ $social->url }}">
+                                            <label for="social-url-{{$key}}">Url</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!--end col-->
+                        @endforeach
+                    </div><!--end row-->
+                </div>
             </div>
             <div class="col-4">
 
                 <div class="mb-3">
                     <label for="favicon" class="form-label">Favicon</label>
-                    <x-filepond id="favicon" name="favicon" value="{{ $setting->favicon }}"
-                        class="filepond" file="{{ $setting->favicon }}" location="uploads/setting" />
+                    <x-filepond id="favicon" name="favicon" value="{{ $setting->favicon }}" class="filepond"
+                        file="{{ $setting->favicon }}" location="uploads/setting" />
                 </div>
 
                 <div class="mb-3">
                     <label for="main_logo" class="form-label">Main Logo</label>
-                    <x-filepond id="main_logo" name="main_logo" value="{{ $setting->main_logo }}"
-                        class="filepond" file="{{ $setting->main_logo }}" location="uploads/setting" />
+                    <x-filepond id="main_logo" name="main_logo" value="{{ $setting->main_logo }}" class="filepond"
+                        file="{{ $setting->main_logo }}" location="uploads/setting" />
                 </div>
                 <div class="mb-3">
                     <label for="footer_logo" class="form-label">Footer Logo</label>

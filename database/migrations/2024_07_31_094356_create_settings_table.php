@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('footer_logo')->nullable();
             $table->string('favicon')->nullable();
             $table->string('copyright')->nullable();
+            $table->json('social_media')->nullable();
             $table->timestamps();
         });
     }
