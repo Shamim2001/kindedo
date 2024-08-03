@@ -15,7 +15,7 @@
             <tr>
                 <th scope="col" style="width:5%" class="text-center">#</th>
                 <th scope="col" style="width:35%">Name</th>
-                <th scope="col" style="width:30%">Slug</th>
+                <th scope="col" style="width:20%">Slug</th>
                 <th scope="col" class="text-center" style="width:15%">Action</th>
             </tr>
         </thead>
@@ -26,7 +26,7 @@
                         {{ $categories->perPage() * ($categories->currentPage() - 1) + ++$key }}
                     </td>
                     <td style="width: 35%">{{ $category->name }}</td>
-                    <td style="width: 30%">{{ $category->slug }}</td>
+                    <td style="width: 20%">{{ $category->slug }}</td>
                     <td style="width: 15%" class="text-center">
                         <div class="hstack gap-3 flex-wrap justify-content-center">
 

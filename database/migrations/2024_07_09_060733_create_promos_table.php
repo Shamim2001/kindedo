@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('image');
             $table->longText('description')->nullable();
             $table->enum('status', ['active', 'inactive'])->default('active');
+            $table->foreignId('category_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }

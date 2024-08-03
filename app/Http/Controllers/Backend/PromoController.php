@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Promo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -23,7 +24,8 @@ class PromoController extends Controller
      */
     public function create()
     {
-        return view('backend.promo.create');
+        $categories = Category::get();
+        return view('backend.promo.create', compact('categories'));
     }
 
     /**
@@ -33,12 +35,13 @@ class PromoController extends Controller
     {
         // Validate the input
         $request->validate([
-            'title' => 'required|string|max: 255',
-            'excerpt' => 'nullable|string',
+            'title'       => 'required|string|max: 255',
+            'excerpt'     => 'nullable|string',
             'description' => 'nullable',
-            'video_url' => 'nullable',
-            'image' => 'required',
-            'status' => 'required',
+            'video_url'   => 'nullable',
+            'image'       => 'required',
+            'status'      => 'required',
+            'category_id' => 'required|exists:categories,id',
         ]);
 
         try {
@@ -57,6 +60,7 @@ class PromoController extends Controller
                 'video_url'   => $request->video_url,
                 'image'       => $image,
                 'status'      => $request->status ? 'active': 'inactive',
+                'category_id' => $request->category_id,
             ]);
 
             // Redirect
@@ -81,7 +85,8 @@ class PromoController extends Controller
      */
     public function edit(Promo $promo)
     {
-        return view('backend.promo.edit', compact('promo'));
+        $categories = Category::get();
+        return view('backend.promo.edit', compact('promo', 'categories'));
     }
 
     /**
@@ -97,6 +102,7 @@ class PromoController extends Controller
             'video_url'   => 'nullable',
             'status'      => 'nullable',
             'image'       => 'required',
+            'category_id' => 'required|exists:categories,id',
         ]);
 
         try {
@@ -116,6 +122,7 @@ class PromoController extends Controller
                 'video_url'   => $request->video_url,
                 'image'       => $image,
                 'status'      => $request->status ? 'active': 'inactive',
+                'category_id' => $request->category_id,
             ]);
 
             // Redirect

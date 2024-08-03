@@ -40,10 +40,23 @@
                 <div class="mb-3">
                     <div class="form-check form-switch form-switch-primary">
                         <h5 class="fs-lg fw-medium ">Status</h5>
-                        <input class="form-check-input" type="checkbox" checked role="switch" id="SwitchCheck7" name="status"
-                            value="active">
+                        <input class="form-check-input" type="checkbox" checked role="switch" id="SwitchCheck7"
+                            name="status" value="active">
                         <label class="form-check-label" class="form-label" for="SwitchCheck7">Active</label>
                     </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="category_id">Category</label>
+                    <select name="category_id" class="form-control category_id" id="category_id">
+                        <option value="none">Enter select category</option>
+                        @foreach ($categories as $category)
+                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                        @endforeach
+                    </select>
+
+                    @error('category_id')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="video_url">Video Url</label>
@@ -71,3 +84,11 @@
     </form>
 
 @endsection
+
+@push('js')
+    <script>
+        $(document).ready(function() {
+            $('.category_id').select2();
+        });
+    </script>
+@endpush

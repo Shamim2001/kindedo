@@ -44,6 +44,7 @@
     <link rel="stylesheet" type="text/css"
         href="{{ asset('backend/assets/libs/fonticonpicker/jquery.fonticonpicker.inverted.min.css') }}">
     <link rel="stylesheet" href="{{ asset('backend/assets/libs/icofont/icofont.min.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
     <!-- custom Css-->
     <link href="{{ asset('backend/assets/css/custom.min.css') }}" rel="stylesheet" type="text/css">
@@ -176,6 +177,7 @@
     {{-- initiated --}}
     <script src="{{ asset('backend/assets/js/pages/nestable.init.js') }}"></script>
     <script src="{{ asset('backend/assets/js/pages/sweetalerts.init.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
     <script type="text/javascript" src="{{ asset('backend/assets/libs/filepond/filepond.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('backend/assets/libs/filepond/filepond.jquery.js') }}"></script>

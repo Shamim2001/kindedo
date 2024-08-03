@@ -29,6 +29,9 @@ class DatabaseSeeder extends Seeder
             'role' => 'admin'
         ]);
 
+        $this->call(CategorySeeder::class);
+        $this->call(SettingSeeder::class);
+
         User::factory(20)->create();
         Slider::factory(10)->create();
         Promo::factory(5)->create();
@@ -36,7 +39,7 @@ class DatabaseSeeder extends Seeder
         Faq::factory(10)->create();
         Gallery::factory(70)->create();
 
-        $this->call(SettingSeeder::class);
-        $this->call(CategorySeeder::class);
+
+
     }
 }

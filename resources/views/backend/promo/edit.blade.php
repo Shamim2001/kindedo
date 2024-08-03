@@ -52,6 +52,19 @@
                     @enderror
                 </div>
                 <div class="mb-3">
+                    <label class="form-label" for="category">Category</label>
+                    <select name="category" class="form-control category_id" id="category">
+                        <option value="none">Enter select category</option>
+                        @foreach ($categories as $category)
+                            <option value="{{ $category->name }}" {{ $promo->category = $category ? 'selected' : '' }}>{{ $category->name }}</option>
+                        @endforeach
+                    </select>
+
+                    @error('category')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
+                <div class="mb-3">
                     <label class="form-label" for="video_url">Video Url</label>
                     <input type="url" name="video_url" id="video_url" placeholder="Enter type video url"
                         class="form-control" value="{{ $promo->video_url }}">

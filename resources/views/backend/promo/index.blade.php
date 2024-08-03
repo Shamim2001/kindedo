@@ -16,7 +16,7 @@
                 <th scope="col" style="width:5%" class="text-center">#</th>
                 <th scope="col" style="width:10%">Image</th>
                 <th scope="col" style="width:30%">Title</th>
-                <th scope="col" style="width:25%">Video Url</th>
+                <th scope="col" style="width:25%">Category</th>
                 <th scope="col" style="width:10%">Status</th>
                 <th scope="col" class="text-center" style="width:10%">Action</th>
             </tr>
@@ -31,8 +31,8 @@
                         <img src="{{ getAssetUrl($promo->image, 'uploads/promos') }}" alt="{{ $promo->title }}"
                             class="avatar-sm">
                     </td>
-                    <td style="width: 30%">{{ $promo->title }}</td>
-                    <td style="width: 35%">{{ $promo->video_url }}</td>
+                    <td style="width: 35%">{{ $promo->title }}</td>
+                    <td style="width: 3%">{{ $promo->category->name }}</td>
                     <td style="width: 10%">
                         <span
                             class="badge fs-sm {{ $promo->status == 'active' ? 'bg-primary' : 'bg-danger' }} w-100 text-capitalize">{{ $promo->status }}</span>
