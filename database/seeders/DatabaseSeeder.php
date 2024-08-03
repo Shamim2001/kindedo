@@ -37,5 +37,6 @@ class DatabaseSeeder extends Seeder
         Gallery::factory(70)->create();
 
         $this->call(SettingSeeder::class);
+        $this->call(CategorySeeder::class);
     }
 }
