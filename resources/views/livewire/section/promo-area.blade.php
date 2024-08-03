@@ -59,7 +59,7 @@
                     </div> --}}
                     <div class="bd-promotion-btn-wrapper flex-wrap">
                         <div class="bd-promotion-btn">
-                            <a href="#" class="bd-btn">
+                            <a href="{{ route('front.about') }}" class="bd-btn">
                                 <span class="bd-btn-inner">
                                     <span class="bd-btn-normal">View More</span>
                                     <span class="bd-btn-hover">View More</span>

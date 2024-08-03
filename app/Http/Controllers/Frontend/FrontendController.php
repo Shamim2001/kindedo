@@ -42,4 +42,9 @@ class FrontendController extends Controller
     function contact() : View {
         return view('frontend.contact.index');
     }
+
+    // About
+    function about() : View {
+        return view('frontend.about.index');
+    }
 }

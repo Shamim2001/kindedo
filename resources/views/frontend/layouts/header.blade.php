@@ -95,7 +95,7 @@
                                 </ul> -->
                             </li>
                             <li class="has-dropdown ">
-                               <a href="#">About</a>
+                               <a href="{{ route('front.about') }}">About</a>
                                <ul class="submenu">
                                   <li><a href="#">About Our School</a></li>
                                   <li><a href="index-2.html">Message From Management</a>
