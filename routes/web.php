@@ -7,6 +7,7 @@ use App\Http\Controllers\Backend\PromoController;
 use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Backend\ProgramController;
 use App\Http\Controllers\Backend\SettingController;
+use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Frontend\FrontendController;
 
@@ -31,6 +32,7 @@ Route::prefix('dashboard')->middleware(['auth', 'verified'])->group(function () 
     Route::resource('promo', PromoController::class);
     Route::resource('program', ProgramController::class);
     Route::resource('faq', FaqController::class);
+    Route::resource('category', CategoryController::class);
 
     // Route::get('programs', [DashboardController::class, 'programs'])->name('program.index');
     // Route::get('faq', [DashboardController::class, 'faqs'])->name('faq.index');

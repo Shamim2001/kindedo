@@ -36,6 +36,13 @@
                  <li class="menu-title"><span data-key="t-menu">Menu</span></li>
                  <x-nav-item title="Dashboard" icon="ti ti-brand-google-home" :url="route('dashboard.index')" :active="request()->routeIs('dashboard.index')" />
 
+                 <!-- Category -->
+                 <x-nav-dropdown id="category" title="Category" :active="request()->routeIs('category.*')" icon="ri-function-line">
+                     <x-nav-item title="View All" icon="" :url="route('category.index')" :active="request()->routeIs('category.index')" />
+                     <x-nav-item title="Add New" icon="" :url="route('category.create')" :active="request()->routeIs('category.create')" />
+                 </x-nav-dropdown>
+
+
                  <!-- Slider -->
                  <x-nav-dropdown id="slider" title="Slider" :active="request()->routeIs('slider.*')" icon="ri-function-line">
                      <x-nav-item title="View All" icon="" :url="route('slider.index')" :active="request()->routeIs('slider.index')" />
