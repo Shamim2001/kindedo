@@ -24,6 +24,7 @@ Route::as('front.')->group(function () {
     Route::get('teacher-panel', [FrontendController::class, 'teacherPanel'])->name('teacher.panel');
     Route::get('administrative-team', [FrontendController::class, 'administrativeTeam'])->name('administrative.team');
     Route::get('procedures-policies', [FrontendController::class, 'policies'])->name('procedure.policies');
+    Route::get('facilities', [FrontendController::class, 'facilities'])->name('facilities');
     Route::get('contact', [FrontendController::class, 'contact'])->name('contact');
 });
 

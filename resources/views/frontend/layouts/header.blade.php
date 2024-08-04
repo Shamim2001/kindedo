@@ -169,7 +169,7 @@
                                <a href="{{ route('front.index') }}">Residential information</a>
                             </li>
                             <li>
-                               <a href="news.html">Our Policies</a>
+                               <a href="{{ route('front.facilities') }}">Facilities</a>
                             </li>
                             <li class="has-dropdown">
                                <a href="shop.html">Activities</a>

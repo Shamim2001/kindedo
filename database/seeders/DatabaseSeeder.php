@@ -34,7 +34,7 @@ class DatabaseSeeder extends Seeder
 
         User::factory(20)->create();
         Slider::factory(10)->create();
-        Promo::factory(5)->create();
+        Promo::factory(50)->create();
         Program::factory(20)->create();
         Faq::factory(10)->create();
         Gallery::factory(70)->create();

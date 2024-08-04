@@ -85,5 +85,13 @@ class CategorySeeder extends Seeder
             'name' => 'events',
             'slug' => 'events',
         ]);
+        Category::create([
+            'name' => 'parents says',
+            'slug' => 'parents-says',
+        ]);
+        Category::create([
+            'name' => 'facilities',
+            'slug' => 'facilities',
+        ]);
     }
 }

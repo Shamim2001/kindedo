@@ -73,4 +73,9 @@ class FrontendController extends Controller
     function policies() : View {
         return view('frontend.about.polices');
     }
+
+    // message facilities
+    function facilities() : View {
+        return view('frontend.facilities.index');
+    }
 }
