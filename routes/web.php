@@ -19,6 +19,7 @@ Route::as('front.')->group(function () {
     Route::get('program/{slug}', [FrontendController::class, 'programDetails'])->name('program.details');
     Route::get('teachers', [FrontendController::class, 'teachers'])->name('teacher.index');
     Route::get('about', [FrontendController::class, 'about'])->name('about');
+    Route::get('message-management', [FrontendController::class, 'messageManagement'])->name('message.management');
     Route::get('contact', [FrontendController::class, 'contact'])->name('contact');
 });
 

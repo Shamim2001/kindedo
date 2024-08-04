@@ -46,15 +46,15 @@
                     </div>
                 </div>
                 <div class="mb-3">
-                    <label class="form-label" for="category_id">Category</label>
-                    <select name="category_id" class="form-control category_id" id="category_id">
+                    <label class="form-label" for="category">Category</label>
+                    <select name="category" class="form-control category_id" id="category">
                         <option value="none">Enter select category</option>
                         @foreach ($categories as $category)
                             <option value="{{ $category->id }}">{{ $category->name }}</option>
                         @endforeach
                     </select>
 
-                    @error('category_id')
+                    @error('category')
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>

@@ -51,12 +51,13 @@
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
+
                 <div class="mb-3">
                     <label class="form-label" for="category">Category</label>
                     <select name="category" class="form-control category_id" id="category">
                         <option value="none">Enter select category</option>
                         @foreach ($categories as $category)
-                            <option value="{{ $category->name }}" {{ $promo->category = $category ? 'selected' : '' }}>{{ $category->name }}</option>
+                            <option value="{{ $category->id }}" {{ $promo->category_id == $category->id ? 'selected' : '' }}>{{ $category->name }}</option>
                         @endforeach
                     </select>
 

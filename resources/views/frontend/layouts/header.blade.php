@@ -97,8 +97,8 @@
                             <li class="has-dropdown ">
                                <a href="{{ route('front.about') }}">About</a>
                                <ul class="submenu">
-                                  <li><a href="#">About Our School</a></li>
-                                  <li><a href="index-2.html">Message From Management</a>
+                                  <li><a href="{{ route('front.about') }}">About Our School</a></li>
+                                  <li><a href="{{ route('front.message.management') }}">Message From Management</a>
                                   </li>
                                   <!-- <li><a href="index-3.html">Message from The Vice Principle</a></li> -->
                                   <li><a href="index-3.html">Governing Body</a></li>

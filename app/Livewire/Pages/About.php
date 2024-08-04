@@ -15,7 +15,7 @@ class About extends Component
     public function render()
     {
         // category ID for 'about'
-        $catID = Category::where('name', 'about')->value('id');
+        $catID = Category::where('slug', 'about')->value('id');
 
         return view('livewire.pages.about', [
             'abouts' => Promo::where('category_id', $catID)->orderBy('title', 'asc')->get(),

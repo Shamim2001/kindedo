@@ -47,4 +47,9 @@ class FrontendController extends Controller
     function about() : View {
         return view('frontend.about.index');
     }
+
+    // message Management
+    function messageManagement() : View {
+        return view('frontend.about.message');
+    }
 }

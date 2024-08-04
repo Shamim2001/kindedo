@@ -41,7 +41,7 @@ class PromoController extends Controller
             'video_url'   => 'nullable',
             'image'       => 'required',
             'status'      => 'required',
-            'category_id' => 'required|exists:categories,id',
+            'category'    => 'required|exists:categories,id',
         ]);
 
         try {
@@ -60,7 +60,7 @@ class PromoController extends Controller
                 'video_url'   => $request->video_url,
                 'image'       => $image,
                 'status'      => $request->status ? 'active': 'inactive',
-                'category_id' => $request->category_id,
+                'category_id' => $request->category,
             ]);
 
             // Redirect
@@ -102,7 +102,7 @@ class PromoController extends Controller
             'video_url'   => 'nullable',
             'status'      => 'nullable',
             'image'       => 'required',
-            'category_id' => 'required|exists:categories,id',
+            'category'    => 'required|exists:categories,id',
         ]);
 
         try {
@@ -122,7 +122,7 @@ class PromoController extends Controller
                 'video_url'   => $request->video_url,
                 'image'       => $image,
                 'status'      => $request->status ? 'active': 'inactive',
-                'category_id' => $request->category_id,
+                'category_id' => $request->category,
             ]);
 
             // Redirect
