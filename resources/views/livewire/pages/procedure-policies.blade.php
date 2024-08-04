@@ -1,9 +1,9 @@
 <div>
-    <x-breadcrumb title="About" />
+    <x-breadcrumb title="Procedure & Polices" />
 
-    @if ($abouts)
+    @if ($procedures)
         <!-- promotion area start here  -->
-        @foreach ($abouts as $key => $about)
+        @foreach ($procedures as $key => $procedure)
             <section class="bd-promotion-area pt-90 {{ $loop->last ? 'pb-60' : '' }}">
                 <div class="container">
                     <div class="row align-items-center">
@@ -14,8 +14,8 @@
                                     data-wow-delay=".3s">
                                     <div class="bd-promotion-thumb">
                                         <div class="bd-promotion-thumb-mask p-relative">
-                                            <img src="{{ getAssetUrl($about->image, 'uploads/promos') }}"
-                                                alt="{{ $about->title }}">
+                                            <img src="{{ getAssetUrl($procedure->image, 'uploads/promos') }}"
+                                                alt="{{ $procedure->title }}">
                                             <div class="panel wow"></div>
                                         </div>
                                     </div>
@@ -29,8 +29,8 @@
                                 <div class="bd-promotion mb-60 wow fadeInRight" data-wow-duration="1s"
                                     data-wow-delay=".3s">
                                     <div class="bd-section-title-wrapper mb-35">
-                                        <h2 class="bd-section-title mb-10">{{ $about->title }}</h2>
-                                        <p>{!! $about->description !!}</p>
+                                        <h2 class="bd-section-title mb-10">{{ $procedure->title }}</h2>
+                                        <p>{!! $procedure->description !!}</p>
                                     </div>
                                     <div class="bd-promotion-btn-wrapper flex-wrap">
                                         <div class="bd-promotion-btn">
@@ -41,9 +41,9 @@
                                                 </span>
                                             </a>
                                         </div>
-                                        @if ($about->video_url)
+                                        @if ($procedure->video_url)
                                             <div class="bd-promotion-btn-2 bd-pulse-btn btn-2">
-                                                <a href="{{ $about->video_url }}" class="popup-video"><i
+                                                <a href="{{ $procedure->video_url }}" class="popup-video"><i
                                                         class="flaticon-play-button"></i> Promotional Video</a>
                                             </div>
                                         @endif
@@ -57,8 +57,8 @@
                                     data-wow-delay=".3s">
                                     <div class="bd-promotion-thumb">
                                         <div class="bd-promotion-thumb-mask p-relative">
-                                            <img src="{{ getAssetUrl($about->image, 'uploads/promos') }}"
-                                                alt="{{ $about->title }}">
+                                            <img src="{{ getAssetUrl($procedure->image, 'uploads/promos') }}"
+                                                alt="{{ $procedure->title }}">
                                             <div class="panel wow"></div>
                                         </div>
                                     </div>
@@ -72,8 +72,8 @@
                                 <div class="bd-promotion mb-60 wow fadeInLeft" data-wow-duration="1s"
                                     data-wow-delay=".3s">
                                     <div class="bd-section-title-wrapper mb-35">
-                                        <h2 class="bd-section-title mb-10">{{ $about->title }}</h2>
-                                        <p>{!! $about->description !!}</p>
+                                        <h2 class="bd-section-title mb-10">{{ $procedure->title }}</h2>
+                                        <p>{!! $procedure->description !!}</p>
                                     </div>
                                     <div class="bd-promotion-btn-wrapper flex-wrap">
                                         <div class="bd-promotion-btn">
@@ -84,9 +84,9 @@
                                                 </span>
                                             </a>
                                         </div>
-                                        @if ($about->video_url)
+                                        @if ($procedure->video_url)
                                             <div class="bd-promotion-btn-2 bd-pulse-btn btn-2">
-                                                <a href="{{ $about->video_url }}" class="popup-video"><i
+                                                <a href="{{ $procedure->video_url }}" class="popup-video"><i
                                                         class="flaticon-play-button"></i> Promotional Video</a>
                                             </div>
                                         @endif

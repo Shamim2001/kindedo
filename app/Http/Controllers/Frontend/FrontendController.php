@@ -57,4 +57,20 @@ class FrontendController extends Controller
     function governingBody() : View {
         return view('frontend.about.governing-body');
     }
+
+
+    // message teacher Panel
+    function teacherPanel() : View {
+        return view('frontend.about.teacher-panel');
+    }
+
+    // message administrative Team
+    function administrativeTeam() : View {
+        return view('frontend.about.teacher-panel');
+    }
+
+    // message policies
+    function policies() : View {
+        return view('frontend.about.polices');
+    }
 }

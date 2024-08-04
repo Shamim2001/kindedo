@@ -96,9 +96,9 @@
                                   </li>
                                   <!-- <li><a href="index-3.html">Message from The Vice Principle</a></li> -->
                                   <li><a href="{{ route('front.governing.body') }}">Governing Body</a></li>
-                                  <li><a href="index-3.html">Teacher Panel</a></li>
-                                  <li><a href="index-3.html">Administrative Team</a></li>
-                                  <li><a href="index-3.html">Procedures and Policies</a></li>
+                                  <li><a href="{{ route('front.teacher.panel') }}">Teacher Panel</a></li>
+                                  <li><a href="{{ route('front.administrative.team') }}">Administrative Team</a></li>
+                                  <li><a href="{{ route('front.procedure.policies') }}">Procedures and Policies</a></li>
                                </ul>
                             </li>
 
