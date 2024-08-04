@@ -87,12 +87,6 @@
                             <!-- <li class="has-dropdown"> -->
                             <li>
                                <a href="{{ route('front.index') }}">Home</a>
-                               <!-- <ul class="submenu">
-                                   <li><a href="{{ route('front.index') }}">Home Style 1</a></li>
-                                   <li><a href="index-2.html">Home Style 2</a>
-                                   </li>
-                                   <li><a href="index-3.html">Home Style 3</a></li>
-                                </ul> -->
                             </li>
                             <li class="has-dropdown ">
                                <a href="{{ route('front.about') }}">About</a>
@@ -101,7 +95,7 @@
                                   <li><a href="{{ route('front.message.management') }}">Message From Management</a>
                                   </li>
                                   <!-- <li><a href="index-3.html">Message from The Vice Principle</a></li> -->
-                                  <li><a href="index-3.html">Governing Body</a></li>
+                                  <li><a href="{{ route('front.governing.body') }}">Governing Body</a></li>
                                   <li><a href="index-3.html">Teacher Panel</a></li>
                                   <li><a href="index-3.html">Administrative Team</a></li>
                                   <li><a href="index-3.html">Procedures and Policies</a></li>

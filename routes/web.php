@@ -20,6 +20,7 @@ Route::as('front.')->group(function () {
     Route::get('teachers', [FrontendController::class, 'teachers'])->name('teacher.index');
     Route::get('about', [FrontendController::class, 'about'])->name('about');
     Route::get('message-management', [FrontendController::class, 'messageManagement'])->name('message.management');
+    Route::get('governing-body', [FrontendController::class, 'governingBody'])->name('governing.body');
     Route::get('contact', [FrontendController::class, 'contact'])->name('contact');
 });
 

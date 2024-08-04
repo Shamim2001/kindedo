@@ -52,4 +52,9 @@ class FrontendController extends Controller
     function messageManagement() : View {
         return view('frontend.about.message');
     }
+
+    // message governing Body
+    function governingBody() : View {
+        return view('frontend.about.governing-body');
+    }
 }
