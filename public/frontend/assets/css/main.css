@@ -920,7 +920,7 @@ i[class^=flaticon-] {
   width: 260px;
 }
 .preloader-thumb img {
-  width: 200px;
+  width: 120px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -943,6 +943,7 @@ i[class^=flaticon-] {
   left: 0;
   animation: rotate-infinite 15s linear infinite;
 }
+
 
 /*--
     - Background color
@@ -2162,10 +2163,12 @@ i[class^=flaticon-] {
 .bd-header-logo {
   width: 186px;
   position: relative;
-  z-index: 1;
+  z-index: 9;
 }
 .bd-header-logo img {
-  width: 50%;
+  width: 100%;
+  /*position: absolute;
+  z-index: 10;*/
 }
 @media only screen and (min-width: 576px) and (max-width: 767px) {
   .bd-header-logo {

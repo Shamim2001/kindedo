@@ -52,14 +52,14 @@
                                   <p><a href="mailto:{{$setting->support}}">{{$setting->support}}</a></p>
                                </div>
                             </div>
-                            <div class="bd-header-meta-item d-flex align-items-center">
-                               <div class="bd-header-meta-icon">
-                                  <i class="fas fa-clock"></i>
-                               </div>
-                               <div class="bd-header-meta-text">
-                                  <p>{{ time() }}</p>
-                               </div>
-                            </div>
+                            <!--<div class="bd-header-meta-item d-flex align-items-center">-->
+                            <!--   <div class="bd-header-meta-icon">-->
+                            <!--      <i class="fas fa-clock"></i>-->
+                            <!--   </div>-->
+                            <!--   <div class="bd-header-meta-text">-->
+                            <!--      <p>{{ time() }}</p>-->
+                            <!--   </div>-->
+                            <!--</div>-->
                          </div>
                       </div>
                    </div>
@@ -77,31 +77,32 @@
              <div class="mega-menu-wrapper p-relative">
                 <div class="d-flex align-items-center justify-content-between">
                    <div class="bd-header-logo">
+                     <div class="bd-header-logo" style="position:absolute;z-index:99;margin-top: -28px;">
                       <a href="{{ route('front.index') }}">
                          <img src="{{ getAssetUrl($setting->main_logo, 'uploads/setting') }}" alt="logo">
                       </a>
+                   </div>
                    </div>
                    <div class="bd-main-menu d-none d-lg-flex align-items-center">
                       <nav id="mobile-menu">
                          <ul>
                             <!-- <li class="has-dropdown"> -->
-                            <li>
-                               <a href="{{ route('front.index') }}">Home</a>
-                            </li>
-                            <li class="has-dropdown ">
-                               <a href="{{ route('front.about') }}">About</a>
-                               <ul class="submenu">
-                                  <li><a href="{{ route('front.about') }}">About Our School</a></li>
-                                  <li><a href="{{ route('front.message.management') }}">Message From Management</a>
-                                  </li>
-                                  <!-- <li><a href="index-3.html">Message from The Vice Principle</a></li> -->
-                                  <li><a href="{{ route('front.governing.body') }}">Governing Body</a></li>
-                                  <li><a href="{{ route('front.teacher.panel') }}">Teacher Panel</a></li>
-                                  <li><a href="{{ route('front.administrative.team') }}">Administrative Team</a></li>
-                                  <li><a href="{{ route('front.procedure.policies') }}">Procedures and Policies</a></li>
-                               </ul>
-                            </li>
-
+                                <li>
+                                    <a href="{{ route('front.index') }}">Home</a>
+                                 </li>
+                                 <li class="has-dropdown ">
+                                    <a href="{{ route('front.about') }}">About</a>
+                                    <ul class="submenu">
+                                       <li><a href="{{ route('front.about') }}">About Our School</a></li>
+                                       <li><a href="{{ route('front.message.management') }}">Message From Management</a>
+                                       </li>
+                                       <!-- <li><a href="index-3.html">Message from The Vice Principle</a></li> -->
+                                       <li><a href="{{ route('front.governing.body') }}">Governing Body</a></li>
+                                       <li><a href="{{ route('front.teacher.panel') }}">Teacher Panel</a></li>
+                                       <li><a href="{{ route('front.administrative.team') }}">Administrative Team</a></li>
+                                       <li><a href="{{ route('front.procedure.policies') }}">Procedures and Policies</a></li>
+                                    </ul>
+                                 </li>
 
 
 
@@ -111,7 +112,7 @@
                                <a href="{{ route('front.programs') }}">Academics</a>
                                <ul class="mega-menu mega-menu-2">
                                   <li>
-                                     <a href="javascript:void(0);" class="d-lg-none">List 1</a>
+                                     <a href="javascript:void(0);" class="d-lg-none">Section</a>
                                      <ul>
                                         <li> <a href="program-details.html" class="mega-program">
                                               <div class="mega-menu-2-inner-num"><span>01</span></div>
@@ -138,7 +139,7 @@
                                   </li>
 
                                   <li class="test">
-                                     <a href="javascript:void(0);" class="d-lg-none">list 3</a>
+                                     <a href="javascript:void(0);" class="d-lg-none">Photo</a>
                                      <ul>
                                         <li>
                                            <div class="mega-menu-2-inner-thumb p-relative">
@@ -198,14 +199,14 @@
                              <p><a href="tel:9072003462">907-200-3462</a></p>
                           </div>
                        </div> -->
-                      {{-- <div class="bd-header-btn d-none d-xl-block">
+                       <div class="bd-header-btn d-none d-xl-block">
                          <a href="contact.html" class="bd-btn">
                             <span class="bd-btn-inner">
                                <span class="bd-btn-normal">Apply now</span>
                                <span class="bd-btn-hover">Apply now</span>
                             </span>
                          </a>
-                      </div> --}}
+                      </div>
                       <div class="header-hamburger">
                          <button type="button" class="hamburger-btn offcanvas-open-btn">
                             <span></span>
