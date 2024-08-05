@@ -25,6 +25,9 @@
    <link rel="stylesheet" href="{{ asset('frontend') }}/assets/css/flaticon_kindedo.css">
    <link rel="stylesheet" href="{{ asset('frontend') }}/assets/css/font-awesome-pro.css">
    <link rel="stylesheet" href="{{ asset('frontend') }}/assets/css/spacing.css">
+
+   <link href="{{ asset('backend/assets/libs/toastify-js/src/toastify.css') }}" rel="stylesheet" />
+
    <link rel="stylesheet" href="{{ asset('frontend') }}/assets/css/main.css">
    <link rel="stylesheet" href="{{ asset('frontend') }}/assets/css/custom.css">
 </head>
@@ -323,6 +326,7 @@
    <script src="{{ asset('frontend') }}/assets/js/jquery.appear.js"></script>
    <script src="{{ asset('frontend') }}/assets/js/jquery.odometer.min.js"></script>
    <script src="{{ asset('frontend') }}/assets/js/main.js"></script>
+   <script src='{{ asset('backend/assets/libs/toastify-js/src/toastify.js') }}'></script>
 </body>
 
 

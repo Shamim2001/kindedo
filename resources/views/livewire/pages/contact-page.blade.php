@@ -9,9 +9,9 @@
                     <div class="bd-contact-info">
                        <div class="bd-contact-info-content">
                           <div class="bd-contact-info-icon cat-1">
-                             <a href="tel:9072003462"><i class="flaticon-phone-call"></i></a>
+                             <a href="tel:{{$contact->phone}}"><i class="flaticon-phone-call"></i></a>
                           </div>
-                          <h6><a href="tel:9072003462">907-200-3462</a></h6>
+                          <h6><a href="tel:{{$contact->phone}}">{{$contact->phone}}</a></h6>
                        </div>
                     </div>
                  </div>
@@ -23,7 +23,7 @@
                           <div class="bd-contact-info-icon cat-2">
                              <a href="#"><i class="flaticon-location-pin"></i></a>
                           </div>
-                          <h6><a href="#">14/A, Kilix Home Tower</a></h6>
+                          <h6><a href="#">{{$contact->address}}r</a></h6>
                        </div>
                     </div>
                  </div>
@@ -33,9 +33,9 @@
                     <div class="bd-contact-info">
                        <div class="bd-contact-info-content">
                           <div class="bd-contact-info-icon cat-3">
-                             <a href="mailto:support@kindedo.com"><i class="flaticon-email"></i></a>
+                             <a href="mailto:{{$contact->support}}"><i class="flaticon-email"></i></a>
                           </div>
-                          <h6><a href="mailto:support@kindedo.com">support@kindedo.com</a></h6>
+                          <h6><a href="mailto:{{$contact->support}}">{{$contact->support}}</a></h6>
                        </div>
                     </div>
                  </div>
@@ -52,27 +52,36 @@
               <div class="col-xl-6 mb-60">
                  <div class="bd-contact-form wow fadeInLeft" data-wow-duration="1s" data-wow-delay=".3s">
                     <h3 class="bd-contact-form-title mb-25">Contact Us Right Here</h3>
-                    <form action="#">
+                    <form method="POST">
                        <div class="row">
                           <div class="col-md-6">
                              <div class="bd-contact-input mb-30">
                                 <label for="name">Name <sup><i class="fa-solid fa-star-of-life"></i></sup></label>
-                                <input id="name" type="text">
+                                <input id="name" wire:model="name" type="text">
+                                @error('name')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
                              </div>
                           </div>
                           <div class="col-md-6">
                              <div class="bd-contact-input mb-30">
                                 <label for="email">Email <sup><i class="fa-solid fa-star-of-life"></i></sup></label>
-                                <input id="email" type="text">
+                                <input id="email" wire:model="email" type="text">
+                                @error('email')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
                              </div>
                           </div>
-                          <div class="col-md-6">
+                          <div class="col-md-12">
                              <div class="bd-contact-input mb-30">
                                 <label for="phone">Phone <sup><i class="fa-solid fa-star-of-life"></i></sup></label>
-                                <input id="phone" type="text">
+                                <input id="phone" wire:model="phone" type="text">
+                                @error('phone')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
                              </div>
                           </div>
-                          <div class="col-md-6">
+                          {{-- <div class="col-md-6">
                              <div class="bd-contact-input mb-30">
                                 <label for="subject">Subject <sup><i
                                          class="fa-solid fa-star-of-life"></i></sup></label>
@@ -82,12 +91,16 @@
                                    <option>Senior KG</option>
                                 </select>
                              </div>
-                          </div>
+                          </div> --}}
                           <div class="col-md-12">
                              <div class="bd-contact-input mb-20">
                                 <label for="textarea">Comments <sup><i
                                          class="fa-solid fa-star-of-life"></i></sup></label>
-                                <textarea name="textarea" id="textarea"></textarea>
+                                <textarea name="textarea" wire:model="comments" id="textarea"></textarea>
+
+                                @error('comments')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
                              </div>
                           </div>
                           <div class="col-md-12 mb-30">
@@ -98,7 +111,7 @@
                           </div>
                           <div class="col-md-12">
                              <div class="bd-contact-agree-btn">
-                                <button type="submit" class="bd-btn">
+                                <button type="button" wire:click.prevent="messageSend" class="bd-btn">
                                    <span class="bd-btn-inner">
                                       <span class="bd-btn-normal">Send
                                          now</span>
@@ -124,4 +137,27 @@
         </div>
      </section>
      <!-- contact area end here  -->
+
+     <script>
+        // Success Listener
+        window.addEventListener('success', function(event) {
+            let message = event.detail;
+            console.log(message);
+
+            Toastify({
+                text: message,
+                duration: 3000,
+                newWindow: true,
+                close: true,
+                gravity: "bottom",
+                position: "right",
+                stopOnFocus: true,
+                style: {
+                    background: "linear-gradient(to right, #00b09b, #96c93d)",
+                },
+                onClick: function() {} // Callback after click
+            }).showToast();
+        });
+     </script>
 </div>
+

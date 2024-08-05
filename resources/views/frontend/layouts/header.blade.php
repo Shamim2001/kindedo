@@ -185,7 +185,7 @@
                                <a href="news.html">Gallery</a>
                             </li>
                             <li>
-                               <a href="contact.html">Contact</a>
+                               <a href="{{ route('front.contact') }}">Contact</a>
                             </li>
                          </ul>
                       </nav>
