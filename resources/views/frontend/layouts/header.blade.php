@@ -182,7 +182,7 @@
                             </li>
 
                             <li>
-                               <a href="news.html">Gallery</a>
+                               <a href="{{ route('front.gallery') }}">Gallery</a>
                             </li>
                             <li>
                                <a href="{{ route('front.contact') }}">Contact</a>

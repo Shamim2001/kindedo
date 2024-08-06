@@ -78,4 +78,10 @@ class FrontendController extends Controller
     function facilities() : View {
         return view('frontend.facilities.index');
     }
+
+
+    // message page Gallery
+    function pageGallery() : View {
+        return view('frontend.gallery.index');
+    }
 }
