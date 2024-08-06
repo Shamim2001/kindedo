@@ -5,7 +5,6 @@
     <!-- gallery area start here  -->
     <div class="bd-gallery-area p-relative pt-120 pb-95 p-relative">
         <div class="container">
-            {{-- {{dd($galleries->chunk(2))}} --}}
             @foreach ($galleries->chunk(3) as $chunk)
                 <div class="row">
                     @foreach ($chunk as $index => $gallery)
