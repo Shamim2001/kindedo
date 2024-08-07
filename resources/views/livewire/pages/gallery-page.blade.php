@@ -12,10 +12,10 @@
                             <div class="bd-gallery mb-25 wow fadeInUp" data-wow-duration="1s" data-wow-delay=".3s">
                                 <div class="bd-gallery-thumb-wrapper">
                                     <div class="bd-gallery-thumb">
-                                        <img src="{{ $gallery->name, 'uploads/gallery' }}" alt="img not found!">
+                                        <img src="{{ getAssetUrl($gallery->name, 'uploads/gallery') }}" alt="img not found!">
                                     </div>
                                     <div class="bd-gallery-icon">
-                                        <a href="{{ $gallery->name, 'uploads/gallery' }}" class="popup-image"><i
+                                        <a href="{{ getAssetUrl($gallery->name, 'uploads/gallery') }}" class="popup-image"><i
                                                 class="flaticon-eye"></i></a>
                                     </div>
                                 </div>
@@ -24,6 +24,9 @@
                     @endforeach
                 </div>
             @endforeach
+            <div class="mt-3">
+                {{ $galleries->links() }}
+            </div>
         </div>
     </div>
 

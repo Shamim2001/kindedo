@@ -14,7 +14,7 @@
             <tr>
                 <th scope="col" class="text-center">#</th>
                 <th scope="col" style="width: 25%" class="text-center">Gallery</th>
-                <th scope="col" style="width: 25%">Product Id <small>(optional)</small></th>
+                <th scope="col" style="width: 25%" class="text-center">Program ID <small>(optional)</small></th>
                 <th scope="col" class="text-center">Action</th>
             </tr>
             </thead>
@@ -26,9 +26,9 @@
                     </td>
                     <td class="text-center">
                         <img src="{{ $image->name ? getAssetUrl($image->name, 'uploads/gallery') : '/backend/assets/images/users/avatar-3.jpg' }}"
-                             alt="" class="avatar-sm">
+                             alt="" class="avatar-md">
                     </td>
-                    <td style="width: 25%">{{ $image->product_id ?? '' }}</td>
+                    <td style="width: 25%" class="text-center">{{ $image->program_id ?? '' }}</td>
                     <td style="width: 10%" class="text-center">
                         <div class="hstack gap-3 flex-wrap justify-content-center">
 
@@ -52,7 +52,7 @@
                 </tr>
             @empty
                 <tr>
-                    <td colspan="5" class="text-center">No faq(s) found!</td>
+                    <td colspan="5" class="text-center">No Gallerie(s) found!</td>
                 </tr>
             @endforelse
 

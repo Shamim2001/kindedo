@@ -46,22 +46,37 @@
                  <!-- Slider -->
                  <x-nav-dropdown id="slider" title="Slider" :active="request()->routeIs('slider.*')" icon="ri-function-line">
                      <x-nav-item title="View All" icon="" :url="route('slider.index')" :active="request()->routeIs('slider.index')" />
+                     <x-nav-item title="View All" icon="" :url="route('slider.create')" :active="request()->routeIs('slider.create')" />
                  </x-nav-dropdown>
 
 
                  <!-- Program -->
                  <x-nav-dropdown id="program" title="Program" :active="request()->routeIs('program.*')" icon="ri-function-line">
                      <x-nav-item title="View All" icon="" :url="route('program.index')" :active="request()->routeIs('program.index')" />
+                     <x-nav-item title="View All" icon="" :url="route('program.create')" :active="request()->routeIs('program.create')" />
                  </x-nav-dropdown>
 
                  <!-- Faq -->
                  <x-nav-dropdown id="faq" title="Faq" :active="request()->routeIs('faq.*')" icon="ri-function-line">
                      <x-nav-item title="View All" icon="" :url="route('faq.index')" :active="request()->routeIs('faq.index')" />
+                     <x-nav-item title="View All" icon="" :url="route('faq.create')" :active="request()->routeIs('faq.create')" />
                  </x-nav-dropdown>
 
                  <!-- Promo -->
                  <x-nav-dropdown id="promo" title="Promo" :active="request()->routeIs('promo.*')" icon="ri-function-line">
                      <x-nav-item title="View All" icon="" :url="route('promo.index')" :active="request()->routeIs('promo.index')" />
+                     <x-nav-item title="View All" icon="" :url="route('promo.create')" :active="request()->routeIs('promo.create')" />
+                 </x-nav-dropdown>
+
+                 <!-- Gallery -->
+                 <x-nav-dropdown id="Gallery" title="Gallery" :active="request()->routeIs('gallery.*')" icon="ri-function-line">
+                     <x-nav-item title="View All" icon="" :url="route('gallery.index')" :active="request()->routeIs('gallery.index')" />
+                     <x-nav-item title="Add New" icon="" :url="route('gallery.create')" :active="request()->routeIs('gallery.create')" />
+                 </x-nav-dropdown>
+
+                 <!-- Contact -->
+                 <x-nav-dropdown id="Contact" title="Contact" :active="request()->routeIs('contact.*')" icon="ri-function-line">
+                     <x-nav-item title="View All" icon="" :url="route('contact.index')" :active="request()->routeIs('contact.index')" />
                  </x-nav-dropdown>
 
                  <!-- Setting -->
