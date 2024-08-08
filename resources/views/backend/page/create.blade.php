@@ -4,63 +4,84 @@
 
 
 @section('content')
-    <div class="bg-white p-4">
-        <div class="row">
-            <div class="col-8 mx-auto">
-                <div class="text-end">
-                    <a href="{{ route('page.index') }}" class="btn btn-dark">Back</a>
+
+    <div class="text-end mb-2">
+        <a href="{{ route('page.index') }}" class="btn btn-dark">Back</a>
+    </div>
+
+    <form action="{{ route('page.store') }}" method="POST" enctype="multipart/form-data">
+        @csrf
+
+        <div class="row gx-5">
+            <div class="col-8">
+                <div class="mb-3">
+                    <label class="form-label" for="title">Title</label>
+                    <input type="text" name="title" id="title" placeholder="Enter type title" class="form-control">
+                    @error('title')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="description">Description</label>
+                    <x-editor name="description" />
+                    @error('description')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="mb-3">
+                    <div class="form-check form-switch form-switch-primary">
+                        <h5 class="fs-lg fw-medium ">Status</h5>
+                        <input class="form-check-input" type="checkbox" checked role="switch" id="SwitchCheck7"
+                            name="status" value="active">
+                        <label class="form-check-label" class="form-label" for="SwitchCheck7">Active</label>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="category">Category</label>
+                    <select name="category" class="form-control category_id" id="category">
+                        <option value="none">Enter select category</option>
+                        @foreach ($categories as $category)
+                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                        @endforeach
+                    </select>
+
+                    @error('category')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="video_url">Video Url</label>
+                    <input type="url" name="video_url" id="video_url" placeholder="Enter type video url"
+                        class="form-control">
+                    @error('video_url')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="image">Image</label>
+                    <x-filepond id="image" name="image" />
+
+                    @error('image')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
                 </div>
 
-                <form action="{{ route('page.store') }}" method="POST">
-                    @csrf
-                    <div class="mb-3">
-                        <label for="title" class="form-label">Title</label>
-                        <input type="text" class="form-control" placeholder="Page title" id="title" name="title"
-                            value="{{ old('title') }}">
-                        @error('title')
-                            <p><small class="text-danger">{{ $message }}</small></p>
-                        @enderror
-                    </div>
-                    <div class="mb-3">
-                        <label for="slug" class="form-label">Slug</label>
-                        <input type="text" class="form-control" placeholder="Page slug" id="slug" name="slug"
-                            value="{{ old('slug') }}">
-                        @error('slug')
-                            <p><small class="text-danger">{{ $message }}</small></p>
-                        @enderror
-                    </div>
-                    <div class="mb-3">
-                        <label for="description" class="form-label">Description</label>
-                        <x-editor name="description" />
-                        @error('description')
-                            <p><small class="text-danger">{{ $message }}</small></p>
-                        @enderror
-                    </div>
-                    <hr>
-                    <div class="text-end">
-                        <button type="submit" class="btn btn-primary">Create</button>
-                    </div>
-                </form>
+                <hr>
+                <div class="text-center mt-4">
+                    <button class="btn btn-primary w-100" type="submit">Create</button>
+                </div>
             </div>
         </div>
-    </div>
+    </form>
 
 @endsection
 
-
 @push('js')
     <script>
-        $(function() {
-            var timeout = null
-            $('input#title').on('keyup', function() {
-                var text = this.value
-                clearTimeout(timeout)
-                timeout = setTimeout(function() {
-                    var slug = slugify(text);
-                    $('input#slug').val(slug);
-                }, 300)
-            });
+        $(document).ready(function() {
+            $('.category_id').select2();
         });
-        
     </script>
 @endpush

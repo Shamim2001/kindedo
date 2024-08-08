@@ -11,6 +11,7 @@ use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\ContactController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\GalleryController;
+use App\Http\Controllers\Backend\PageController;
 use App\Http\Controllers\Frontend\FrontendController;
 
 
@@ -40,6 +41,7 @@ Route::prefix('dashboard')->middleware(['auth', 'verified'])->group(function () 
 
     Route::resource('slider', SliderController::class);
     Route::resource('promo', PromoController::class);
+    Route::resource('page', PageController::class);
     Route::resource('program', ProgramController::class);
     Route::resource('faq', FaqController::class);
     Route::resource('category', CategoryController::class);

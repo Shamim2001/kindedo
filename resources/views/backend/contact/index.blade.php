@@ -29,7 +29,7 @@
                         <div class="hstack gap-3 flex-wrap justify-content-center">
 
                             <a href="{{ route('contact.edit', $contact->id) }}" class="btn btn-outline-primary btn-icon btn-sm cursor-pointer"><i
-                                    class="ri-eye-2-line"></i></a>
+                                    class="ri ri-eye-2-line"></i></a>
 
 
                             <a data-bs-toggle="tooltip" data-bs-custom-class="danger-tooltip" data-bs-placement="top"

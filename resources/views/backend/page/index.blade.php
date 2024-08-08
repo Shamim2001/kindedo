@@ -4,7 +4,7 @@
 
 
 @section('content')
-    <div class="bg-white p-4">
+    <div class="">
         <div class="text-end mb-4">
             <a href="{{ route('page.create') }}" class="btn btn-dark">Add New</a>
         </div>
@@ -13,52 +13,57 @@
             <thead class="table-light">
             <tr>
                 <th scope="col" class="text-center">#</th>
-                <th scope="col" style="width: 25%">Name</th>
-                <th scope="col" style="width: 25%">slug</th>
-                <th scope="col" style="width: 30%">Description</th>
+                <th scope="col" style="width:10%">Image</th>
+                <th scope="col" style="width:30%">Title</th>
+                <th scope="col" style="width:25%">Category</th>
+                <th scope="col" style="width:10%">Status</th>
                 <th scope="col" class="text-center" style="width: 15%">Action</th>
             </tr>
             </thead>
             <tbody>
-            @forelse ($pages as $key => $page)
+                @forelse ($pages as $key => $page)
                 <tr>
                     <td style="width: 5%" scope="row" class="text-center">
                         {{ $pages->perPage() * ($pages->currentPage() - 1) + ++$key }}
                     </td>
                     <td style="width: 10%">
-                        <a href="{{ route('page.edit', $page) }}" data-bs-toggle="tooltip"
-                            data-bs-custom-class="primary-tooltip" data-bs-placement="top" data-bs-original-title="Edit"
-                            class="link-info">{{ $page->title }}</a>
+                        <img src="{{ getAssetUrl($page->image, 'uploads/pages') }}" alt="{{ $page->title }}"
+                            class="avatar-sm">
                     </td>
-                    <td style="width: 10%">{{ $page->slug }}</td>
-                    <td style="width: 30%">{!! \Str::of($page->description)->limit(70) !!}</td>
-                    <td style="width: 15%" class="text-center">
-                        <div class="hstack gap-3 flex-wrap justify-content-center">
-                            <a data-bs-toggle="tooltip" data-bs-custom-class="info-tooltip" data-bs-placement="top"
-                                data-bs-original-title="Show" href="{{ route('page.show', $page) }}"
-                                class="link-primary fs-base"><i class="ri-eye-2-line"></i></a>
+                    <td style="width: 35%">{{ $page->title }}</td>
+                    <td style="width: 3%">{{ $page->category->name }}</td>
+                    <td style="width: 10%">
+                        <span
+                            class="badge fs-sm {{ $page->status == 'active' ? 'bg-primary' : 'bg-danger' }} w-100 text-capitalize">{{ $page->status }}</span>
 
-                            <a data-bs-toggle="tooltip" data-bs-custom-class="info-tooltip" data-bs-placement="top"
-                                data-bs-original-title="Edit" href="{{ route('page.edit', $page) }}"
-                                class="link-info fs-base"><i class="ri-edit-2-line"></i></a>
+                    </td>
+
+                    <td style="width: 10%" class="text-center">
+                        <div class="hstack gap-3 flex-wrap justify-content-center">
+
+                            <a href="{{ route('page.edit', $page->id) }}" class="btn btn-outline-primary btn-icon btn-sm cursor-pointer"><i
+                                    class="ri-edit-2-line"></i></a>
+
+
                             <a data-bs-toggle="tooltip" data-bs-custom-class="danger-tooltip" data-bs-placement="top"
                                 data-bs-original-title="Delete" href="javascript:void(0);"
-                                onclick="deleteRecord({{ $page->id }})" class="link-danger fs-base"><i
-                                    class="ri-delete-bin-line"></i></a>
+                                onclick="deleteRecord({{ $page->id }})"
+                                class="btn btn-outline-danger btn-icon btn-sm"><i class="ri-delete-bin-line"></i></a>
 
 
-                            <form id="delete-form-{{ $page->id }}"
-                                  action="{{ route('page.destroy', $page) }}" method="POST"
-                                  style="display: none">
+                            <form id="delete-form-{{ $page->id }}" action="{{ route('page.destroy', $page) }}"
+                                method="POST" style="display: none">
                                 @csrf
                                 @method('DELETE')
                             </form>
+
+
                         </div>
                     </td>
                 </tr>
             @empty
                 <tr>
-                    <td colspan="5" class="text-center">No Page(s) found!</td>
+                    <td colspan="6" class="text-center">No page(s) found!</td>
                 </tr>
             @endforelse
 
