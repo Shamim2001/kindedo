@@ -15,11 +15,11 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('slug');
-            $table->text('short_description')->nullable();
             $table->longText('description')->nullable();
-            $table->text('duration')->nullable();
-            $table->double('price');
+            $table->time('start_time')->nullable();
+            $table->time('end_time')->nullable();
             $table->string('image');
+            $table->string('pdf')->nullable();
             $table->foreignId('teacher_id')->constrained('users', 'id')->cascadeOnDelete();
             $table->timestamps();
         });

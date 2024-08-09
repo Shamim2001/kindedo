@@ -68,6 +68,12 @@
                      <x-nav-item title="Add New" icon="" :url="route('promo.create')" :active="request()->routeIs('promo.create')" />
                  </x-nav-dropdown>
 
+                 <!-- Courses -->
+                 <x-nav-dropdown id="Courses" title="Courses" :active="request()->routeIs('course.*')" icon="ri-function-line">
+                     <x-nav-item title="View All" icon="" :url="route('course.index')" :active="request()->routeIs('course.index')" />
+                     <x-nav-item title="Add New" icon="" :url="route('course.create')" :active="request()->routeIs('course.create')" />
+                 </x-nav-dropdown>
+
                  <!-- Page -->
                  <x-nav-dropdown id="Page" title="Page" :active="request()->routeIs('page.*')" icon=" ri-pages-fill ">
                      <x-nav-item title="View All" icon="" :url="route('page.index')" :active="request()->routeIs('page.index')" />
