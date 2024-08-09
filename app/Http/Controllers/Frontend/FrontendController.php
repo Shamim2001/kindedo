@@ -84,4 +84,9 @@ class FrontendController extends Controller
     function pageGallery() : View {
         return view('frontend.gallery.index');
     }
+
+    // message page Gallery
+    function academicCalender() : View {
+        return view('frontend.academic.index');
+    }
 }

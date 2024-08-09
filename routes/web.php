@@ -29,6 +29,7 @@ Route::as('front.')->group(function () {
     Route::get('administrative-team', [FrontendController::class, 'administrativeTeam'])->name('administrative.team');
     Route::get('procedures-policies', [FrontendController::class, 'policies'])->name('procedure.policies');
     Route::get('facilities', [FrontendController::class, 'facilities'])->name('facilities');
+    Route::get('academic-calender', [FrontendController::class, 'academicCalender'])->name('academic.calender');
     Route::get('gallery', [FrontendController::class, 'pageGallery'])->name('gallery');
     Route::get('contact', [FrontendController::class, 'contact'])->name('contact');
 });
